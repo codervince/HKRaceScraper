@@ -1,0 +1,655 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    
+    
+    
+    <title>Results - Racing Information - Horse Racing - The Hong Kong Jockey Club</title>
+<meta name="keywords" content="Place, Dividends, Lengths Behind Winner, Finish Time, Sectional Time, Running Position">
+<meta name="description" content=" ">
+<meta content="51, 2015-Jan-04 18:14:41" name="trace" />
+    <link rel="SHORTCUT ICON" href="/racing/Info/StaticFile/Images/favicon.ico" />
+
+    <script type="text/javascript" src="/racing/Info/Scripts/jquery-1.4.1.min.js"></script>
+
+    <script type="text/javascript" src="/racing/Info/Scripts/MicrosoftAjax.min.js"></script>
+
+    <script type="text/javascript" src="/racing/Info/Scripts/MicrosoftMvcAjax.min.js"></script>
+
+    <script type="text/javascript" src="/racing/Info/Scripts/ImgRollover.min.js"></script>
+
+    <script language="javascript" type="text/javascript">var HkjcWebUrl = 'http://www.hkjc.com';
+var JcrwUrlPrefix = '/racing/Info';
+var ajaxBeforeSendTip = '<div style="font-size:14px; font-weight:bold; text-align:center;">Processing...</div><br/>';
+var ajaxErrorTip = '<div style="font-size:14px; font-weight:bold; text-align:center;">Network or system busy, please try again later. Sorry for the inconveniences caused.</div><br/>';
+var jsController = 'race';
+var jsAction = 'results';
+var jsJcerwWebUrl = 'http://racing.hkjc.com/racing/info';
+var jsJCRWDomainIP = 'racing.hkjc.com';
+var jsJCEWDomainIP = 'www.hkjc.com';
+var curIsEnglish = true;
+var curIsSimulcast = false;
+var wcmsUrlPrefix = 'http://racing.hkjc.com/racing/overseas';
+var preUrl = 'http://racing.hkjc.com/racing/Info/meeting/Results/english/Local/20150104/';
+var maxRetryCount = 4;
+var delayTime = '2000';
+var JcrwSSOPath = '//racing.hkjc.com/racing/jcrw/';
+var SSOCommonPath = '//common.hkjc.com/corporate/';
+var SearchPath = '//search.hkjc.com';
+var hidePanel = false;
+var JCRWSystemCutoffDate = '20110815';
+var PageIsReady = false;
+</script>
+
+    <script type="text/javascript">
+        var curStatus = null;
+
+        function toggleLang() {
+            var curURL = document.URL;  //document.location.href;
+            if (arguments.length > 0) {
+                curURL = arguments[0];
+            }
+
+            var reg = new RegExp('(.*\\/' + jsAction + ')(\\/English|\\/Chinese)?(\\/.*)?', 'i');
+            var idx = curURL.match(reg);
+            if (idx != null) {
+                var urlPrefix = RegExp.$1;
+                var urlLang = RegExp.$2;
+                var urlPara = RegExp.$3;
+                if (urlLang == null || urlLang == '' || urlLang.toLowerCase() == '/chinese') {
+                    urlLang = '/English';
+                }
+                else {
+                    urlLang = '/Chinese';
+                }
+                curURL = urlPrefix + urlLang + urlPara;
+            }
+
+            $("#topNav a.lang").attr("href", curURL);
+        }
+
+        function ajaxNav(url) {
+            $.ajax({
+                url: url,
+                data: { "X-Requested-With": "XMLHttpRequest" },
+                type: "POST",
+                dataType: "html",
+                beforeSend: function() {
+                    $('#' + jsAction).html(ajaxBeforeSendTip);
+                },
+                error: function() {
+                    //ajax error
+                    $('#' + jsAction).html(ajaxErrorTip);
+                },
+                success: function(data) {
+                    $('#' + jsAction).html(data);
+                    //for change the language
+                    toggleLang(url);
+                    //for Image roll over
+                    rolloverInit();
+
+                    //not ready for ajax loading
+                    if ($('.mainError').length > 0) {
+
+                        curStatus = $("#hidStatus").val();
+                        if (curStatus == "NOTREADY") {
+                            window.location = url; //refresh the url and use reload approach                                                
+                        } else { //ERROR or ...
+                            $(".mainError").show();
+                            if (curIsSimulcast) {
+                                changeIFrameSize("sysdata_iframe");
+                            }
+                        }
+
+                    } //endif
+                }
+            });
+        }
+
+        //http://developer.yahoo.com/performance/rules.html
+        //Get vs. Post
+
+        function AutoReload(retryCount) {
+            if (retryCount < maxRetryCount) {
+                Reload = setTimeout(function() {
+                    $.ajax({
+                        cache: false,
+                        url: preUrl,
+                        type: "POST",
+                        dataType: "html",
+                        error: function() {
+                            //ajax error
+                            $("#loading").hide();
+                            $('#' + jsAction).html(ajaxErrorTip);
+                        },
+                        success: function(data) {
+                            if (data.indexOf("mainError") > 0 && data.indexOf('Redirect') <= 0) {
+                                if (data.indexOf('value="ERROR"') > 0) {
+                                    retryCount = maxRetryCount;
+                                }
+                                AutoReload(retryCount + 1);
+
+                            } else {
+                                //reset the retry count
+                                retryCount = 0;
+
+                                //Data is OK,  and display it!;
+                                //Fix the invalidation of js function after update by Ajax
+                                window.location = preUrl;
+                            }
+                        }
+                    });
+                }, delayTime);
+            } else {
+                if (curStatus == "NOTREADY") {
+                    $(".retryLink").show();
+                }
+
+                $("#loading").hide();
+                if (hidePanel) {
+                    $("#divRemark").show();
+                } else {
+                    $(".mainError").show();
+                    if (curIsSimulcast) {
+                        changeIFrameSize("sysdata_iframe");
+                    }
+                }
+                if (parent.document.location.href.toLowerCase().indexOf(wcmsUrlPrefix) < 0) {
+                    try {
+                        WATracker.trackPageView('racing-content');
+                    } catch (e) {
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body topmargin='0' leftmargin='0'>
+    
+
+<script type="text/javascript" src="/racing/Info/GlobalMenu/English/js/global.js"></script>
+<script type="text/javascript" src="/racing/Info/GlobalMenu/English/js/section-home.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/racing/Info/Content/CommonStyle.min.css" />
+<link rel="stylesheet" type="text/css" href="/racing/Info/Content/English/div.min.css" />
+
+<link rel="stylesheet" type="text/css" href="/racing/Info/GlobalMenu/English/css/global.css" />
+<link rel="stylesheet" type="text/css" href="/racing/Info/English/revamp/css/jcrw_global.css" />
+<link rel="stylesheet" type="text/css" href="/racing/Info/English/revamp/css/jcrw_racing.css" />
+<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/racing/Info/English/revamp/css/global_ie6.css" /><![endif]-->
+<!-- For Local pages -->
+
+<div id="mainContainer">
+    <!--	
+	This header file is transformed from WCMS version 20 Jan 2012
+-->
+
+<!--<script src="//common.hkjc.com/wa/wa_tracker.js" type="text/javascript"></script>-->
+<!-- <script type="text/javascript" src="/racing/common/english/js/globallogin.js"></script>	   -->
+<!-- Replaced by jcrw_sso.js-->
+<script type="text/javascript" language="javascript">
+    var str = '';
+    str += '<scr' + 'ipt src="' + SearchPath  + '/search/common/chinese/js/specialChar.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SearchPath  + '/search/common/chinese/js/b64.min.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/customer_profile.min.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/jquery-1.4.1.min.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/jquery.jsonp-2.1.3.min.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/SSOCore.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/sso.min.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/ssoConfig.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+	str += '<scr' + 'ipt src="' + jsJcerwWebUrl + '/GlobalMenu/English/js/jcrw_sso.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    // RW add
+	str += '<scr' + 'ipt src="' + jsJcerwWebUrl + '/english/include/readyToShowLoginBar.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    document.write(str);
+</script>
+<script type="text/javascript" language="javascript">
+        var isFocus = false;
+        setTimeout(showLogin, 25);	//RW amend
+</script><div id="header">
+<script type="text/javascript" language="javascript">
+    document.write('<a id="logo" href="http://' + jsJCEWDomainIP + '"><img src="../../../../../GlobalMenu/english/images/logo_hkjc.gif" alt="The Hong Kong Jockey Club" /></a><div id="logo-130"><img src="../../../../../GlobalMenu/english/images/logo_hkjc_130_msg.gif" alt=" Celebrating The Club\'s 130th Anniversary" /></div>');
+</script>
+<div id="header_nav" class="nav">
+<div id="topNav">
+<div>
+<script type="text/javascript" language="javascript">
+document.write('<a href="http://' + jsJCEWDomainIP + '/home/english/index.asp">Home</a>');
+</script>
+<a class="lang" href="javascript:changeLanguage();">中文</a>
+
+<!-- search box -->
+<label for="searchtext" class="nosize">Search</label>
+<input onblur="if(this.value=='') this.value='Search';isFocus = false;" onfocus="if(this.value=='Search') this.value='';isFocus = true;" maxlength="166" value="Search" type="text" name="" id="searchtext" />
+<label for="submitsearch" class="nosize">Submit Search</label> 
+<input onclick="javascript:goSearch();return false;" class="iconToggle" type="image" src="/racing/info/GlobalMenu/english/images/icon_toggle.gif" id="submitsearch" /><!-- RW amended-->
+<!-- end search box -->
+
+</div>
+<span id="globalLoginControl"></span>
+<div id="ssoDiv"></div>
+<span id="loginComponent"></span>
+</div>
+<div id="ewinContainer"><a class="ewin" href="http://bet.hkjc.com/default.aspx?lang=en" onclick="WATracker.trackClickEvent('header_ewin_home')" target="_blank"><img src="../../../../../globalmenu/english/images/icon_ewin.gif" alt="eWin" /></a><a href="http://bet.hkjc.com/racing/?lang=en" onclick="WATracker.trackClickEvent('header_ewin_racing')" target="_blank">Horse Racing</a> <a href="http://bet.hkjc.com/football/default.aspx?ci=en-US" onclick="WATracker.trackClickEvent('header_ewin_football')" target="_blank">Football</a> <a href="http://bet.hkjc.com/marksix/?lang=en" onclick="WATracker.trackClickEvent('header_ewin_marksix')" target="_blank">Mark Six</a></div>
+</div>
+</div>
+<!-- script for search box -->
+<script type="text/javascript" language="javascript">
+   var focus = "false";
+   var search_category = "racing";
+   document.getElementById("searchtext").onkeypress = function handleKeyPress(evt){
+   var keycode = (window.event)?event.keyCode:evt.which;
+	   if(keycode == 13){
+		  if(isFocus){
+			   focus = "false";
+			   goSearch();
+			   focus = "true";
+
+		  }
+  }
+   }
+   function replaceAllChar(text, inp) {
+	   while(text.indexOf(inp)>=0)
+		   text = text.replace(inp, '');
+	   return text;
+   }
+   function goSearch(){
+
+	 if( focus == "false") {
+
+	 var keyword = document.getElementById('searchtext').value;
+	 for (var i=0; i<charArr.length; i++)                 
+		 keyword = replaceAllChar(keyword, charArr[i]);
+	 keyword = keyword.replace(/^\s+/, '').replace(/\s+$/, '');    
+	 if(keyword == "" || keyword == "Search" || keyword == "搜尋"){
+
+	 var lang =  "english";
+	
+	 if(lang == "english")
+	alert("Please input a search query");
+
+	 if(lang == "chinese")
+			 alert("請輸入搜尋字串");
+	}
+	else {
+		//	+ SearchPath
+		  var url = "http:" + SearchPath + "/search/english/search.aspx?k="+Base64.encode(encodeURIComponent(keyword));
+		  if(search_category=="utility"){
+			   url += "&g=faq";
+		  }
+		  else{
+			   url += "&g=all";
+		  }
+		  url += "&t=n";
+		  window.location.href = url;
+	   }
+ }
+ else {
+		 focus = "false";
+	}
+ }
+</script>
+<div class="clearfix" id="mainNav">
+<div class="nav">
+<div class="shadowL"></div>
+<div class="content">
+<script type="text/javascript" language="javascript">
+    document.write('<a href="http://entertainment.hkjc.com/entertainment/english/index.aspx" rel="entertainment" target="_top"><img src="../../../../../GlobalMenu/english/images/navigation/entertainment-l1.gif" alt="Racecourses and Entertainment" /></a><a href="http://' + jsJCRWDomainIP + '/racing/english/index.aspx" rel="racing" target=""><img src="../../../../../GlobalMenu/english/images/navigation/racing-l1_over.gif" alt="Horse Racing" /></a><a href="http://football.hkjc.com/football/english/index.aspx" rel="football" target=""><img src="../../../../../GlobalMenu/english/images/navigation/football-l1.gif" alt="Football" /></a><a href="http://member.hkjc.com/member/english/index.asp" rel="member" target=""><img src="../../../../../GlobalMenu/english/images/navigation/member-l1.gif" alt="Membership" /></a><a href="http://charities.hkjc.com/charities/english/index.aspx" rel="charities" target=""><img src="../../../../../GlobalMenu/english/images/navigation/charities-l1.gif" alt="Charities and Community" /></a><a href="http://corporate.hkjc.com/corporate/english/index.aspx" rel="corporate" target=""><img src="../../../../../GlobalMenu/english/images/navigation/corporate-l1.gif" alt="About HKJC" /></a>');
+</script>
+</div>
+<div class="shadowR"></div>
+</div>
+<div class="subNav">
+<div class="shadowL"></div>
+<div class="content">
+<script type="text/javascript" language="javascript">
+    document.write(''+
+'<ul>' +
+'<li>' +
+'<a id="racing-info-local" href="http://' + jsJCRWDomainIP + '/racing/info/meeting/racecard/english" rel="racing-info" target="">Racing Info (Local)</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a id="racing-info-simulcast" href="http://' + jsJCRWDomainIP + '/racing/overseas/english/index.aspx" rel="racing-info-simulcast" target="">Racing Info (Simulcast)</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/news/index.htm" rel="racing-news" target="">Racing News</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/racinginfo/key_races.asp" rel="key-races" target="">Key Races</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/press/showcase.asp" rel="multimedia-showcase" target="">Multimedia Showcase</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/english/international-racing/index.aspx" rel="international-racing" target="">International Racing and Sale</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a href="http://special.hkjc.com/racing/info/en/betting/guide.asp" rel="betting-guide" target="_blank">Betting Guide</a><span class="stroke">|</span>' +
+'</li>' +
+'<li class="last">' +
+'<a href="http://' + jsJCEWDomainIP + '/english/school/why_index.htm" rel="learn-racing" target="">Learn Racing</a>' +
+'</li>' +
+'</ul>');
+</script>
+</div>
+<div class="shadowR"></div>
+</div>
+<div class="shadowB"></div>
+</div>
+<script type="text/javascript" language="javascript">
+    //JcrwUrlPrefix & wcmsUrlPrefix from Site.Master
+    $("#racing-info-local").attr("href", JcrwUrlPrefix + "/meeting/racecard/english");
+    $("#racing-info-simulcast").attr("href", wcmsUrlPrefix + "/english/index.aspx");
+</script>
+</div>
+
+<script type="text/javascript">
+    toggleLang();
+    
+    $(document).ready(function() {
+        init();
+        setPromoPopup('', '', '', 'yes', 'yes', '');
+    });
+</script>
+<div id="contentContainer"><div class="shadowL"></div><div class="content">
+<link rel="stylesheet" type="text/css" href="/racing/Info/Content/english/RacingMenu.css" />
+<div id="navmenu-bg">
+    <ul id="navmenu-h">
+        <li><a href="/racing/Info/meeting/Entries/english/Local/20150104/">Entries</a></li><li><a href="/racing/Info/meeting/RaceCard/english/Local/20150104/">Race Card / Form</a><ul><li><a href="/racing/Info/meeting/RaceCard/english/Local/20150104/">Race Card / Form</a></li><li><a href="/racing/Info/meeting/Trackwork/english/Local/20150104/">Trackwork</a></li><li><a href="/racing/Info/meeting/RaceReportExt/english/Local/20150104/">Past Incidents Extract</a></li><li><a href="/racing/Info/meeting/FormLine/english/Local/20150104/">Form Line Report</a></li><li><a href="/racing/Info/meeting/ExceptionalFactors/english/Local/20150104/">Exceptional Factors</a></li><li><a href="/racing/Info/meeting/VeterinaryRecord/english/Local/20150104/">Veterinary Records</a></li></ul></li><li><a href="javascript:jcew_openCurrentOdds()">Current Odds</a></li><li><a href="/racing/Info/meeting/TrainerEntry/english/Local/20150104/">Trainers' Entries</a></li><li><a href="/racing/Info/meeting/JockeysRides/english/Local/20150104/">Jockeys' Rides</a></li><li><a href="/racing/Info/meeting/Changes/english/Local/20150104/">Ref. Info</a><ul><li><a href="/racing/Info/meeting/Changes/english/Local/20150104/">Changes</a></li><li><a href="/racing/Info/meeting/Summary/english/Local/20150104/">General Information</a></li><li><a href="http://www.hkjc.com/english/racinginfo/raceday_focus_1.asp">Raceday Focus</a></li><li><a href="http://www.hkjc.com/english/racinginfo/newhorse.asp">Intro to New Horses</a></li><li><a href="http://racing.hkjc.com/racing/english/racing-info/last-run-reminder.aspx">Last Run Reminder</a></li><li><a href="javascript:openPowerFigures()">Power Figures</a></li><li><a href="http://www.hkjc.com/english/tipsindex/tips_index.asp" target="_blank">Tips Index</a></li><li><a href="javascript:jcew_openEasyWin()">Easy Form</a></li><li><a href="http://www.hkjc.com/english/formguide/formguide.asp">SpeedPOWER</a></li><li><a href="http://www.hkjc.com/english/racinginfo/racing_course_select.htm">Course Selection</a></li><li><a href="http://www.hkjc.com/english/racinginfo/racing_course.htm">Course Information</a></li><li><a href="http://www.hkjc.com/english/racinginfo/racing_course_time.htm">Course Standard &amp; Record Times</a></li><li><a href="http://www.hkjc.com/english/racinginfo/racing_rules_instr.asp">Rules of Racing and Instructions</a></li><li><a href="http://www.hkjc.com/english/racinginfo/reg_approved_gear.asp">Register of Approved Gear of HKJC</a></li><li><a href="http://www.hkjc.com/english/racinginfo/handicap_policy.asp">Handicapping Policy</a></li><li><a href="javascript:jcew_allupcalculator('/racing/Info/meeting/AllUpCalculator/english/Local/20150104/')">All Up Calculator</a></li><li><a href="/racing/Info/meeting/TTAutoPick/english/Local/20150104/">T - T Auto Pick</a></li><li><a href="http://www.hkjc.com/english/racinginfo/racing_weather.htm">Weather Forecast</a></li></ul></li><li><a href="/racing/Info/meeting/Draw/english/Local/20150104/">Statistics</a><ul><li><a href="/racing/Info/meeting/Draw/english/Local/20150104/">Draw Statistics</a></li><li><a href="http://racing.hkjc.com/racing/english/racing-info/jkc-odds-chart.aspx">Jockey Challenge Odds Chart</a></li><li><a href="/racing/Info/meeting/JkcStat/english/Local/20150104/">Jockey Challenge Statistics</a></li><li><a href="http://www.hkjc.com/english/racing/JockeyFavourite.asp">Jockeys' Favourite</a></li><li><a href="http://www.hkjc.com/english/racing/TrainerFavourite.asp">Trainers' Favourite</a></li></ul></li><li><a href="/racing/Info/meeting/Results/english/Local/20150104/">Results</a></li><li><a href="http://www.hkjc.com/english/racing/RaceReportFull.asp">Reports</a><ul><li><a href="http://www.hkjc.com/english/racing/RaceReportFull.asp">Racing Incident Report</a></li><li><a href="http://www.hkjc.com/english/racing/CORunning.asp">Comments on Running</a></li></ul></li><li><a href="/racing/Info/jockey/Ranking/english">Jockeys &amp; Trainers</a><ul><li><a href="/racing/Info/jockey/Ranking/english">Jockeys</a></li><li><a href="/racing/Info/trainer/Ranking/english">Trainers</a></li></ul></li><li><a href="http://www.hkjc.com/english/racing/SelectHorse.asp">Horses</a><ul><li><a href="http://www.hkjc.com/english/racing/SelectHorse.asp">Horses</a></li><li><a href="http://www.hkjc.com/english/racing/mcs01_xml_horserating.asp?type=CLAS">Rating List</a></li><li><a href="http://www.hkjc.com/english/racinginfo/fwb_declared_starters.asp">High Achievement and ISG Bonuses</a></li><li><a href="http://www.hkjc.com/english/racing/Track_Search.asp">Trackwork</a></li><li><a href="http://www.hkjc.com/english/racing/btresult.asp">Barrier Trial Full Results</a></li><li><a href="/racing/Info/meeting/OVERecord/english/local">Veterinary Records</a></li><li><a href="http://www.hkjc.com/english/racing/horseinfo.asp">Latest on Horses</a></li><li><a href="http://www.hkjc.com/english/racing/Health.asp">Health Record</a></li><li><a href="http://www.hkjc.com/english/racing/horse_former_name.asp">Horse Former Name  &amp; Pedigree</a></li><li><a href="http://www.hkjc.com/english/racinginfo/pps_import_critieria.htm">Horse Import Criteria</a></li><li><a href="http://www.hkjc.com/english/racinginfo/ppo_performance_current.asp">PP Pre-import Performance</a></li></ul></li><li><a href="http://www.hkjc.com/english/racing/Fixture.asp">Fixtures</a><ul><li><a href="http://www.hkjc.com/english/racinginfo/patternrace_current.asp">Hong Kong Pattern Races</a></li><li><a href="http://www.hkjc.com/english/racinginfo/key_races.asp">Key Races</a></li><li><a href="http://www.hkjc.com/english/racing/Fixture.asp">Current Season Programme</a></li></ul></li>
+    </ul>
+</div>
+
+<script language="javascript" type="text/javascript">
+    //add selected effect
+    $("#navmenu-h a").filter(function() {
+        return this.href.toLowerCase().indexOf("/" + jsController.replace("race", "meeting") + "/" + jsAction) > -1;
+    }).addClass("selected");
+    //add arrow gif
+    $("#navmenu-h>li li").filter(function() {
+        return $(this).find("ul").length > 0;
+    }).prepend("<div class='navmenu-arrow' />");
+    //adjust position of sub menu
+    $("#navmenu-h>li li").hover(function() {
+        if (document.body.clientWidth < ($(this).offset().left + 400)) {
+            $(this).find("ul").css("left", "-101%");
+        }
+    }, function() {
+        $(this).find("ul").css("left", "100%");
+    });    
+</script>
+
+<!--[if IE]>
+<script language="javascript" type="text/javascript">
+    //add shadow effect for IE
+    $("#navmenu-h ul").append(function() {
+        var height = $(this).children("li").length * 29;
+        height += $(this).children("li").filter(".multirow2").length * 15;
+        height += $(this).children("li").filter(".multirow3").length * 30;
+        return $("<div class='navmenu-shadow' />").height(height);
+    });
+</script>
+<![endif]-->
+<!--[if lte IE 6.5]>
+<script language="javascript" type="text/javascript">
+//    //add iframe mask to hack IE6 bug( )
+//    $("#navmenu-h ul").append(function() {
+//        var height = $(this).children("li").length * 29 + 5;
+//        return $("<iframe class='mask' />").height(height);
+//    });
+    
+    //as iframe would conflict with DC's global.js, so use hide 
+    //hide all <select> elements to compatible with production environment
+    $("#navmenu-bg ul").hover(function() {
+        $("select").css("visibility", "hidden");
+    }, function() {
+        $("select").css("visibility", "visible");
+    });
+    //add iehover effect for IE6
+    $("#navmenu-h li").hover(function() {
+        $(this).addClass("iehover");
+    }, function() {
+        $(this).removeClass("iehover");
+    });
+</script>
+<![endif]-->
+
+    <div id="loading" class="rowDiv15" style="text-align: center; display: none; background-color: #FFFFFF;">
+        <img src="/racing/Info/StaticFile/Images/Loading.gif" border="0" alt="" />
+    </div>
+    
+
+<div id="results" class="contentDiv">
+    <div id="divRemark" style="display: none;">
+        
+        <table class="tableBorder0" cellspacing="0" cellpadding="0" width="100%">
+            <tr>
+                <td class="tdBglighthblue2 tdAlignVC tdAlignC" height="402px">
+                    <br />
+                    <div class="boldFont14">All Up Calculator will be available after start sell.</div>
+                    <div class="boldFont14">Sorry for inconvenience caused !</div>
+                    <br />
+                    <br />
+                    <br />
+                    <input type="button" value="Close" onclick="window.close()" />
+                    <br />
+                    <br />
+                    <div class="font13 lineH18 retryLink" style="text-align: center; display: none;">
+                        <a href="javascript:AutoReload(0);">Please retry later</a>&nbsp;&nbsp;
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mainError" style="display: none; background-color: #FFFFFF;">
+        <div class="left95">
+            <p>
+                You may visit any of the pages below about The Hong Kong Jockey Club and its related services.</p>
+            <p>
+                &gt;&gt; <a href="http://www.hkjc.com/">
+                    Jockey Club Home Page</a></p>
+        </div>
+        <div class="right620">
+            <div class="font13 lineH18 divHeight150" id="divErrorMsg">
+                &nbsp;</div>
+            <div class="font13 lineH18 marginTop10 retryLink" style="text-align: center; display: none;">
+                <a id="retrylink" href="javascript:AutoReload(0);">
+                    Please retry later</a>&nbsp;&nbsp;
+            </div>
+            <div class="rowDivLeft font13" style="visibility: hidden">
+                System Support Code:&nbsp;0104181441-51-01-05-007-NotReady</div>
+        </div>
+    </div>
+    <input id="hidStatus" type="hidden" value="NOTREADY" />
+    
+    <script type="text/javascript" src="/racing/Info/Scripts/ErrorMsg.min.js"></script>
+    <script type="text/javascript">
+        //$('a#retrylink').attr('href', preUrl);
+        GetErrorMsg('Entries01', 'Noinformation', 'Eng', '');
+    </script>
+</div>
+
+    <script language="javascript" type="text/javascript">
+        // hidePanel & curIsSimulcast from Site.Master
+        if (hidePanel)
+        {
+            $(document.body).css("backgroundImage", "");
+        }
+        
+        $(document).ready(function() {
+            var preStatus = $("#hidStatus").val();
+            if (preStatus == "NOTREADY") {
+                $("#loading").show();
+                AutoReload(0);
+            }
+            else {
+                if (hidePanel) {
+                    $("#divRemark").show();
+                }
+                else {
+                    $(".mainError").show();
+                    if (curIsSimulcast) {
+                        changeIFrameSize("sysdata_iframe");
+                    }
+                }
+            }
+        });    
+    </script>
+
+
+    </div><div class="shadowR"></div></div>
+<div class="rowDiv15">&nbsp;</div>
+<script language="javascript" type="text/javascript">
+
+function getURLType() {
+    var url = window.location;
+    var localPattern = /racing\/info/i;
+    var overseaPattern = /racing\/overseas/i;
+    if (localPattern.test(url)) {
+        return "local";
+    }
+    else if (overseaPattern.test(url)) {
+        return "overseas";
+    }
+    else {
+        return "na";
+    }
+}
+
+document.write('' + 
+'<div id="seo" class="fiveCol">' +
+'<div class="content clearfix">' +
+'<dl>' +
+'<dt>Racing Information</dt>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/Entries/English/" target="_self">Entries</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/Racecard/English/" target="_self">Race Card (Local)</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://bet.hkjc.com/default.aspx?url=/racing/pages/odds_wp.aspx&lang=en&langRedirect=true&dv=' + getURLType() + '" target="_blank">Current Odds</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/Results/English/" target="_self">Results &amp; Dividends</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/JockeysRides/English/" target="_self">Jockeys\' Rides</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/TrainerEntry/English/" target="_self">Trainers\' Entries</a>' +
+'</dd>' +
+'</dl>' +
+'<div></div>' +
+'<dl>' +
+'<dt>Racing News &amp; Resources</dt>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/corporate/racing_news.asp" target="_self">Racing News</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/corporate/racing_news_archive.asp" target="_self">News Archives</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/racinginfo/key_races.asp" target="_self">Key Races</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/racing/selecthorse.asp" target="_self">Horses</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/Jockey/Ranking/English/" target="_self">Jockeys</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/Trainer/Ranking/English/" target="_self">Trainers</a>' +
+'</dd>' +
+'</dl>' +
+'<div></div>' +
+'<dl>' +
+'<dt>Analytical Tools</dt>' +
+'<dd>' +
+'<a href="javascript:openPowerFiguresBottomLink()">Power Figures</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/formguide/formguide.asp" target="_blank">SpeedPOWER</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/tipsindex/tips_index.asp" target="_blank">Tips Index</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/easyform/popIndex.asp?lang=eng" target="_blank">Easy Form</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/racinginfo/newhorse.asp" target="_self">Intro to New Horses</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/AllUpCalculator/English/" target="_blank">All-Up Calculator</a>' +
+'</dd>' +
+'</dl>' +
+'<div></div>' +
+'<dl>' +
+'<dt>Multimedia</dt>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/press/live.asp" target="_self">Live Broadcast</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/press/showcase.asp" target="_self">TV Programme Replay</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/press/btrs.asp" target="_self">Barrier Trials</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/racinginfo/ppo_performance_current.asp" target="_self">PP Pre-import Races Footage</a>' +
+'</dd>' +
+'</dl>' +
+'<div></div>' +
+'<dl>' +
+'<dt>Useful Info</dt>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/Summary/English/" target="_self">General Information</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/Draw/english/" target="_self">Draw Statistics</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/JkcStat/english/" target="_self">Jockey Challenge Statistics</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://special.hkjc.com/racing/info/en/betting/guide-flexibet-index.asp" target="_blank">Flexi Bet</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://mcs.hkjc.com/" target="_blank">Media Communication System</a>' +
+'</dd>' +
+'</dl>' +
+'</div>' +
+'</div>');
+</script><div id="footer"><div class="rgp"><img src="../../../../../GlobalMenu/english/images/rgp_text_eng_970.gif" usemap="#RGP_970e" /> <!--
+<div class="ifha"></div>
+--></div>
+<map name="RGP_970e" id="RGP_970e">
+<area shape="rect" coords="900,2,968,43" href="http://corporate.hkjc.com/corporate/rgp/english/index.aspx" target="_self" />
+</map>
+<div class="nav clearfix">
+<div class="content">
+<script language="javascript" type="text/jscript">
+    var footer = "<a class=\"first\" href=\"http://" + jsJCEWDomainIP + "/english/corporate/faq.asp\" target=\"_blank\">FAQ</a> " +
+    "| <a href=\"javascript:NewWindow('http://special.hkjc.com/infomenu/en/contact/feedback.asp','mypopup','770','550','yes','yes');\">Contact Us</a> " +
+    "| <a href=\"javascript:NewWindow('http://mcs.hkjc.com/','mypopup','770','550','yes','yes');\">Media Communication System</a> " +
+    "| <a href=\"http://" + jsJCEWDomainIP + "/english/corporate/corp_sitemap.asp\">Site Map</a> " +
+    "| <a href=\"javascript:NewWindow('http://" + jsJCEWDomainIP + "/english/betting/betting_rule.htm','mypopup','770','550','yes','yes');\">Rules </a>" +
+    "| <a href=\"http://" + jsJCEWDomainIP + "/english/corporate/corp_rgp.asp\">Responsible Gambling Policy</a> " +
+    "| <a href=\"http://" + jsJCEWDomainIP + "/english/corporate/corp_privacy.asp\">Privacy</a> " +
+    "| <a href=\"http://" + jsJCEWDomainIP + "/english/corporate/corp_disclaimer.asp\">Disclaimer</a><br />";
+document.write(footer);
+</script>
+</div>
+<div class="copyright">Copyright &copy; 2000-2010 The Hong Kong Jockey Club. All rights reserved.</div>
+</div></div><script src="//common.hkjc.com/wa/wa_tracker.js" type="text/javascript"></script><script src="//common.hkjc.com/wa/wa_tracker_config.js" type="text/javascript"></script>
+<script type="text/javascript">
+    if (PageIsReady) { //Page is Ready from Site.Master
+        try {
+            WATracker.trackPageView('racing-content');
+        } catch (e) { } 
+    }
+</script>
+</body>
+</html>

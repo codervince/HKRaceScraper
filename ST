@@ -1,0 +1,733 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    
+    
+    <title>Results - Racing Information - Horse Racing - The Hong Kong Jockey Club</title>
+<meta name="keywords" content="Place, Dividends, Lengths Behind Winner, Finish Time, Sectional Time, Running Position">
+<meta name="description" content=" ">
+<meta content="52, 2015-Jan-04 18:19:15" name="trace" />
+    <link rel="SHORTCUT ICON" href="/racing/Info/StaticFile/Images/favicon.ico" />
+
+    <script type="text/javascript" src="/racing/Info/Scripts/jquery-1.4.1.min.js"></script>
+
+    <script type="text/javascript" src="/racing/Info/Scripts/MicrosoftAjax.min.js"></script>
+
+    <script type="text/javascript" src="/racing/Info/Scripts/MicrosoftMvcAjax.min.js"></script>
+
+    <script type="text/javascript" src="/racing/Info/Scripts/ImgRollover.min.js"></script>
+
+    <script language="javascript" type="text/javascript">var HkjcWebUrl = 'http://www.hkjc.com';
+var JcrwUrlPrefix = '/racing/Info';
+var ajaxBeforeSendTip = '<div style="font-size:14px; font-weight:bold; text-align:center;">Processing...</div><br/>';
+var ajaxErrorTip = '<div style="font-size:14px; font-weight:bold; text-align:center;">Network or system busy, please try again later. Sorry for the inconveniences caused.</div><br/>';
+var jsController = 'race';
+var jsAction = 'results';
+var jsJcerwWebUrl = 'http://racing.hkjc.com/racing/info';
+var jsJCRWDomainIP = 'racing.hkjc.com';
+var jsJCEWDomainIP = 'www.hkjc.com';
+var curIsEnglish = true;
+var curIsSimulcast = false;
+var wcmsUrlPrefix = 'http://racing.hkjc.com/racing/overseas';
+var preUrl = 'http://racing.hkjc.com/racing/Info/meeting/Results/english/Local/20150104/ST/1';
+var maxRetryCount = 4;
+var delayTime = '2000';
+var JcrwSSOPath = '//racing.hkjc.com/racing/jcrw/';
+var SSOCommonPath = '//common.hkjc.com/corporate/';
+var SearchPath = '//search.hkjc.com';
+var hidePanel = false;
+var JCRWSystemCutoffDate = '20110815';
+var PageIsReady = true;
+</script>
+
+    <script type="text/javascript">
+        var curStatus = null;
+
+        function toggleLang() {
+            var curURL = document.URL;  //document.location.href;
+            if (arguments.length > 0) {
+                curURL = arguments[0];
+            }
+
+            var reg = new RegExp('(.*\\/' + jsAction + ')(\\/English|\\/Chinese)?(\\/.*)?', 'i');
+            var idx = curURL.match(reg);
+            if (idx != null) {
+                var urlPrefix = RegExp.$1;
+                var urlLang = RegExp.$2;
+                var urlPara = RegExp.$3;
+                if (urlLang == null || urlLang == '' || urlLang.toLowerCase() == '/chinese') {
+                    urlLang = '/English';
+                }
+                else {
+                    urlLang = '/Chinese';
+                }
+                curURL = urlPrefix + urlLang + urlPara;
+            }
+
+            $("#topNav a.lang").attr("href", curURL);
+        }
+
+        function ajaxNav(url) {
+            $.ajax({
+                url: url,
+                data: { "X-Requested-With": "XMLHttpRequest" },
+                type: "POST",
+                dataType: "html",
+                beforeSend: function() {
+                    $('#' + jsAction).html(ajaxBeforeSendTip);
+                },
+                error: function() {
+                    //ajax error
+                    $('#' + jsAction).html(ajaxErrorTip);
+                },
+                success: function(data) {
+                    $('#' + jsAction).html(data);
+                    //for change the language
+                    toggleLang(url);
+                    //for Image roll over
+                    rolloverInit();
+
+                    //not ready for ajax loading
+                    if ($('.mainError').length > 0) {
+
+                        curStatus = $("#hidStatus").val();
+                        if (curStatus == "NOTREADY") {
+                            window.location = url; //refresh the url and use reload approach                                                
+                        } else { //ERROR or ...
+                            $(".mainError").show();
+                            if (curIsSimulcast) {
+                                changeIFrameSize("sysdata_iframe");
+                            }
+                        }
+
+                    } //endif
+                }
+            });
+        }
+
+        //http://developer.yahoo.com/performance/rules.html
+        //Get vs. Post
+
+        function AutoReload(retryCount) {
+            if (retryCount < maxRetryCount) {
+                Reload = setTimeout(function() {
+                    $.ajax({
+                        cache: false,
+                        url: preUrl,
+                        type: "POST",
+                        dataType: "html",
+                        error: function() {
+                            //ajax error
+                            $("#loading").hide();
+                            $('#' + jsAction).html(ajaxErrorTip);
+                        },
+                        success: function(data) {
+                            if (data.indexOf("mainError") > 0 && data.indexOf('Redirect') <= 0) {
+                                if (data.indexOf('value="ERROR"') > 0) {
+                                    retryCount = maxRetryCount;
+                                }
+                                AutoReload(retryCount + 1);
+
+                            } else {
+                                //reset the retry count
+                                retryCount = 0;
+
+                                //Data is OK,  and display it!;
+                                //Fix the invalidation of js function after update by Ajax
+                                window.location = preUrl;
+                            }
+                        }
+                    });
+                }, delayTime);
+            } else {
+                if (curStatus == "NOTREADY") {
+                    $(".retryLink").show();
+                }
+
+                $("#loading").hide();
+                if (hidePanel) {
+                    $("#divRemark").show();
+                } else {
+                    $(".mainError").show();
+                    if (curIsSimulcast) {
+                        changeIFrameSize("sysdata_iframe");
+                    }
+                }
+                if (parent.document.location.href.toLowerCase().indexOf(wcmsUrlPrefix) < 0) {
+                    try {
+                        WATracker.trackPageView('racing-content');
+                    } catch (e) {
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body topmargin='0' leftmargin='0'>
+    
+
+<script type="text/javascript" src="/racing/Info/GlobalMenu/English/js/global.js"></script>
+<script type="text/javascript" src="/racing/Info/GlobalMenu/English/js/section-home.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/racing/Info/Content/CommonStyle.min.css" />
+<link rel="stylesheet" type="text/css" href="/racing/Info/Content/English/div.min.css" />
+
+<link rel="stylesheet" type="text/css" href="/racing/Info/GlobalMenu/English/css/global.css" />
+<link rel="stylesheet" type="text/css" href="/racing/Info/English/revamp/css/jcrw_global.css" />
+<link rel="stylesheet" type="text/css" href="/racing/Info/English/revamp/css/jcrw_racing.css" />
+<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/racing/Info/English/revamp/css/global_ie6.css" /><![endif]-->
+<!-- For Local pages -->
+
+<div id="mainContainer">
+    <!--	
+	This header file is transformed from WCMS version 20 Jan 2012
+-->
+
+<!--<script src="//common.hkjc.com/wa/wa_tracker.js" type="text/javascript"></script>-->
+<!-- <script type="text/javascript" src="/racing/common/english/js/globallogin.js"></script>	   -->
+<!-- Replaced by jcrw_sso.js-->
+<script type="text/javascript" language="javascript">
+    var str = '';
+    str += '<scr' + 'ipt src="' + SearchPath  + '/search/common/chinese/js/specialChar.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SearchPath  + '/search/common/chinese/js/b64.min.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/customer_profile.min.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/jquery-1.4.1.min.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/jquery.jsonp-2.1.3.min.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/SSOCore.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/sso.min.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    str += '<scr' + 'ipt src="' + SSOCommonPath + 'scripts/ssoConfig.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+	str += '<scr' + 'ipt src="' + jsJcerwWebUrl + '/GlobalMenu/English/js/jcrw_sso.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    // RW add
+	str += '<scr' + 'ipt src="' + jsJcerwWebUrl + '/english/include/readyToShowLoginBar.js" type="text/javascr' + 'ipt"></scr' + 'ipt>';
+    document.write(str);
+</script>
+<script type="text/javascript" language="javascript">
+        var isFocus = false;
+        setTimeout(showLogin, 25);	//RW amend
+</script><div id="header">
+<script type="text/javascript" language="javascript">
+    document.write('<a id="logo" href="http://' + jsJCEWDomainIP + '"><img src="../../../../../../GlobalMenu/english/images/logo_hkjc.gif" alt="The Hong Kong Jockey Club" /></a><div id="logo-130"><img src="../../../../../../GlobalMenu/english/images/logo_hkjc_130_msg.gif" alt=" Celebrating The Club\'s 130th Anniversary" /></div>');
+</script>
+<div id="header_nav" class="nav">
+<div id="topNav">
+<div>
+<script type="text/javascript" language="javascript">
+document.write('<a href="http://' + jsJCEWDomainIP + '/home/english/index.asp">Home</a>');
+</script>
+<a class="lang" href="javascript:changeLanguage();">中文</a>
+
+<!-- search box -->
+<label for="searchtext" class="nosize">Search</label>
+<input onblur="if(this.value=='') this.value='Search';isFocus = false;" onfocus="if(this.value=='Search') this.value='';isFocus = true;" maxlength="166" value="Search" type="text" name="" id="searchtext" />
+<label for="submitsearch" class="nosize">Submit Search</label> 
+<input onclick="javascript:goSearch();return false;" class="iconToggle" type="image" src="/racing/info/GlobalMenu/english/images/icon_toggle.gif" id="submitsearch" /><!-- RW amended-->
+<!-- end search box -->
+
+</div>
+<span id="globalLoginControl"></span>
+<div id="ssoDiv"></div>
+<span id="loginComponent"></span>
+</div>
+<div id="ewinContainer"><a class="ewin" href="http://bet.hkjc.com/default.aspx?lang=en" onclick="WATracker.trackClickEvent('header_ewin_home')" target="_blank"><img src="../../../../../../globalmenu/english/images/icon_ewin.gif" alt="eWin" /></a><a href="http://bet.hkjc.com/racing/?lang=en" onclick="WATracker.trackClickEvent('header_ewin_racing')" target="_blank">Horse Racing</a> <a href="http://bet.hkjc.com/football/default.aspx?ci=en-US" onclick="WATracker.trackClickEvent('header_ewin_football')" target="_blank">Football</a> <a href="http://bet.hkjc.com/marksix/?lang=en" onclick="WATracker.trackClickEvent('header_ewin_marksix')" target="_blank">Mark Six</a></div>
+</div>
+</div>
+<!-- script for search box -->
+<script type="text/javascript" language="javascript">
+   var focus = "false";
+   var search_category = "racing";
+   document.getElementById("searchtext").onkeypress = function handleKeyPress(evt){
+   var keycode = (window.event)?event.keyCode:evt.which;
+	   if(keycode == 13){
+		  if(isFocus){
+			   focus = "false";
+			   goSearch();
+			   focus = "true";
+
+		  }
+  }
+   }
+   function replaceAllChar(text, inp) {
+	   while(text.indexOf(inp)>=0)
+		   text = text.replace(inp, '');
+	   return text;
+   }
+   function goSearch(){
+
+	 if( focus == "false") {
+
+	 var keyword = document.getElementById('searchtext').value;
+	 for (var i=0; i<charArr.length; i++)                 
+		 keyword = replaceAllChar(keyword, charArr[i]);
+	 keyword = keyword.replace(/^\s+/, '').replace(/\s+$/, '');    
+	 if(keyword == "" || keyword == "Search" || keyword == "搜尋"){
+
+	 var lang =  "english";
+	
+	 if(lang == "english")
+	alert("Please input a search query");
+
+	 if(lang == "chinese")
+			 alert("請輸入搜尋字串");
+	}
+	else {
+		//	+ SearchPath
+		  var url = "http:" + SearchPath + "/search/english/search.aspx?k="+Base64.encode(encodeURIComponent(keyword));
+		  if(search_category=="utility"){
+			   url += "&g=faq";
+		  }
+		  else{
+			   url += "&g=all";
+		  }
+		  url += "&t=n";
+		  window.location.href = url;
+	   }
+ }
+ else {
+		 focus = "false";
+	}
+ }
+</script>
+<div class="clearfix" id="mainNav">
+<div class="nav">
+<div class="shadowL"></div>
+<div class="content">
+<script type="text/javascript" language="javascript">
+    document.write('<a href="http://entertainment.hkjc.com/entertainment/english/index.aspx" rel="entertainment" target="_top"><img src="../../../../../../GlobalMenu/english/images/navigation/entertainment-l1.gif" alt="Racecourses and Entertainment" /></a><a href="http://' + jsJCRWDomainIP + '/racing/english/index.aspx" rel="racing" target=""><img src="../../../../../../GlobalMenu/english/images/navigation/racing-l1_over.gif" alt="Horse Racing" /></a><a href="http://football.hkjc.com/football/english/index.aspx" rel="football" target=""><img src="../../../../../../GlobalMenu/english/images/navigation/football-l1.gif" alt="Football" /></a><a href="http://member.hkjc.com/member/english/index.asp" rel="member" target=""><img src="../../../../../../GlobalMenu/english/images/navigation/member-l1.gif" alt="Membership" /></a><a href="http://charities.hkjc.com/charities/english/index.aspx" rel="charities" target=""><img src="../../../../../../GlobalMenu/english/images/navigation/charities-l1.gif" alt="Charities and Community" /></a><a href="http://corporate.hkjc.com/corporate/english/index.aspx" rel="corporate" target=""><img src="../../../../../../GlobalMenu/english/images/navigation/corporate-l1.gif" alt="About HKJC" /></a>');
+</script>
+</div>
+<div class="shadowR"></div>
+</div>
+<div class="subNav">
+<div class="shadowL"></div>
+<div class="content">
+<script type="text/javascript" language="javascript">
+    document.write(''+
+'<ul>' +
+'<li>' +
+'<a id="racing-info-local" href="http://' + jsJCRWDomainIP + '/racing/info/meeting/racecard/english" rel="racing-info" target="">Racing Info (Local)</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a id="racing-info-simulcast" href="http://' + jsJCRWDomainIP + '/racing/overseas/english/index.aspx" rel="racing-info-simulcast" target="">Racing Info (Simulcast)</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/news/index.htm" rel="racing-news" target="">Racing News</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/racinginfo/key_races.asp" rel="key-races" target="">Key Races</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/press/showcase.asp" rel="multimedia-showcase" target="">Multimedia Showcase</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/english/international-racing/index.aspx" rel="international-racing" target="">International Racing and Sale</a><span class="stroke">|</span>' +
+'</li>' +
+'<li>' +
+'<a href="http://special.hkjc.com/racing/info/en/betting/guide.asp" rel="betting-guide" target="_blank">Betting Guide</a><span class="stroke">|</span>' +
+'</li>' +
+'<li class="last">' +
+'<a href="http://' + jsJCEWDomainIP + '/english/school/why_index.htm" rel="learn-racing" target="">Learn Racing</a>' +
+'</li>' +
+'</ul>');
+</script>
+</div>
+<div class="shadowR"></div>
+</div>
+<div class="shadowB"></div>
+</div>
+<script type="text/javascript" language="javascript">
+    //JcrwUrlPrefix & wcmsUrlPrefix from Site.Master
+    $("#racing-info-local").attr("href", JcrwUrlPrefix + "/meeting/racecard/english");
+    $("#racing-info-simulcast").attr("href", wcmsUrlPrefix + "/english/index.aspx");
+</script>
+</div>
+
+<script type="text/javascript">
+    toggleLang();
+    
+    $(document).ready(function() {
+        init();
+        setPromoPopup('', '', '', 'yes', 'yes', '');
+    });
+</script>
+<div id="contentContainer"><div class="shadowL"></div><div class="content">
+<link rel="stylesheet" type="text/css" href="/racing/Info/Content/english/RacingMenu.css" />
+<div id="navmenu-bg">
+    <ul id="navmenu-h">
+        <li><a href="/racing/Info/meeting/Entries/english/Local/20150104/ST">Entries</a></li><li><a href="/racing/Info/meeting/RaceCard/english/Local/20150104/ST/1">Race Card / Form</a><ul><li><a href="/racing/Info/meeting/RaceCard/english/Local/20150104/ST/1">Race Card / Form</a></li><li><a href="/racing/Info/meeting/Trackwork/english/Local/20150104/ST/1">Trackwork</a></li><li><a href="/racing/Info/meeting/RaceReportExt/english/Local/20150104/ST/1">Past Incidents Extract</a></li><li><a href="/racing/Info/meeting/FormLine/english/Local/20150104/ST/1">Form Line Report</a></li><li><a href="/racing/Info/meeting/ExceptionalFactors/english/Local/20150104/ST/1">Exceptional Factors</a></li><li><a href="/racing/Info/meeting/VeterinaryRecord/english/Local/20150104/ST/1">Veterinary Records</a></li></ul></li><li><a href="javascript:jcew_openCurrentOdds()">Current Odds</a></li><li><a href="/racing/Info/meeting/TrainerEntry/english/Local/20150104/ST">Trainers' Entries</a></li><li><a href="/racing/Info/meeting/JockeysRides/english/Local/20150104/ST">Jockeys' Rides</a></li><li><a href="/racing/Info/meeting/Changes/english/Local/20150104/ST">Ref. Info</a><ul><li><a href="/racing/Info/meeting/Changes/english/Local/20150104/ST">Changes</a></li><li><a href="/racing/Info/meeting/Summary/english/Local/20150104/ST">General Information</a></li><li><a href="http://www.hkjc.com/english/racinginfo/raceday_focus_1.asp">Raceday Focus</a></li><li><a href="http://www.hkjc.com/english/racinginfo/newhorse.asp">Intro to New Horses</a></li><li><a href="http://racing.hkjc.com/racing/english/racing-info/last-run-reminder.aspx">Last Run Reminder</a></li><li><a href="javascript:openPowerFigures()">Power Figures</a></li><li><a href="http://www.hkjc.com/english/tipsindex/tips_index.asp" target="_blank">Tips Index</a></li><li><a href="javascript:jcew_openEasyWin()">Easy Form</a></li><li><a href="http://www.hkjc.com/english/formguide/formguide.asp">SpeedPOWER</a></li><li><a href="http://www.hkjc.com/english/racinginfo/racing_course_select.htm">Course Selection</a></li><li><a href="http://www.hkjc.com/english/racinginfo/racing_course.htm">Course Information</a></li><li><a href="http://www.hkjc.com/english/racinginfo/racing_course_time.htm">Course Standard &amp; Record Times</a></li><li><a href="http://www.hkjc.com/english/racinginfo/racing_rules_instr.asp">Rules of Racing and Instructions</a></li><li><a href="http://www.hkjc.com/english/racinginfo/reg_approved_gear.asp">Register of Approved Gear of HKJC</a></li><li><a href="http://www.hkjc.com/english/racinginfo/handicap_policy.asp">Handicapping Policy</a></li><li><a href="javascript:jcew_allupcalculator('/racing/Info/meeting/AllUpCalculator/english/Local/20150104/ST')">All Up Calculator</a></li><li><a href="/racing/Info/meeting/TTAutoPick/english/Local/20150104/ST">T - T Auto Pick</a></li><li><a href="http://www.hkjc.com/english/racinginfo/racing_weather.htm">Weather Forecast</a></li></ul></li><li><a href="/racing/Info/meeting/Draw/english/Local/20150104/ST">Statistics</a><ul><li><a href="/racing/Info/meeting/Draw/english/Local/20150104/ST">Draw Statistics</a></li><li><a href="http://racing.hkjc.com/racing/english/racing-info/jkc-odds-chart.aspx">Jockey Challenge Odds Chart</a></li><li><a href="/racing/Info/meeting/JkcStat/english/Local/20150104/ST">Jockey Challenge Statistics</a></li><li><a href="http://www.hkjc.com/english/racing/JockeyFavourite.asp">Jockeys' Favourite</a></li><li><a href="http://www.hkjc.com/english/racing/TrainerFavourite.asp">Trainers' Favourite</a></li></ul></li><li><a href="/racing/Info/meeting/Results/english/Local/20150104/ST/1">Results</a></li><li><a href="http://www.hkjc.com/english/racing/RaceReportFull.asp">Reports</a><ul><li><a href="http://www.hkjc.com/english/racing/RaceReportFull.asp">Racing Incident Report</a></li><li><a href="http://www.hkjc.com/english/racing/CORunning.asp">Comments on Running</a></li></ul></li><li><a href="/racing/Info/jockey/Ranking/english">Jockeys &amp; Trainers</a><ul><li><a href="/racing/Info/jockey/Ranking/english">Jockeys</a></li><li><a href="/racing/Info/trainer/Ranking/english">Trainers</a></li></ul></li><li><a href="http://www.hkjc.com/english/racing/SelectHorse.asp">Horses</a><ul><li><a href="http://www.hkjc.com/english/racing/SelectHorse.asp">Horses</a></li><li><a href="http://www.hkjc.com/english/racing/mcs01_xml_horserating.asp?type=CLAS">Rating List</a></li><li><a href="http://www.hkjc.com/english/racinginfo/fwb_declared_starters.asp">High Achievement and ISG Bonuses</a></li><li><a href="http://www.hkjc.com/english/racing/Track_Search.asp">Trackwork</a></li><li><a href="http://www.hkjc.com/english/racing/btresult.asp">Barrier Trial Full Results</a></li><li><a href="/racing/Info/meeting/OVERecord/english/local">Veterinary Records</a></li><li><a href="http://www.hkjc.com/english/racing/horseinfo.asp">Latest on Horses</a></li><li><a href="http://www.hkjc.com/english/racing/Health.asp">Health Record</a></li><li><a href="http://www.hkjc.com/english/racing/horse_former_name.asp">Horse Former Name  &amp; Pedigree</a></li><li><a href="http://www.hkjc.com/english/racinginfo/pps_import_critieria.htm">Horse Import Criteria</a></li><li><a href="http://www.hkjc.com/english/racinginfo/ppo_performance_current.asp">PP Pre-import Performance</a></li></ul></li><li><a href="http://www.hkjc.com/english/racing/Fixture.asp">Fixtures</a><ul><li><a href="http://www.hkjc.com/english/racinginfo/patternrace_current.asp">Hong Kong Pattern Races</a></li><li><a href="http://www.hkjc.com/english/racinginfo/key_races.asp">Key Races</a></li><li><a href="http://www.hkjc.com/english/racing/Fixture.asp">Current Season Programme</a></li></ul></li>
+    </ul>
+</div>
+
+<script language="javascript" type="text/javascript">
+    //add selected effect
+    $("#navmenu-h a").filter(function() {
+        return this.href.toLowerCase().indexOf("/" + jsController.replace("race", "meeting") + "/" + jsAction) > -1;
+    }).addClass("selected");
+    //add arrow gif
+    $("#navmenu-h>li li").filter(function() {
+        return $(this).find("ul").length > 0;
+    }).prepend("<div class='navmenu-arrow' />");
+    //adjust position of sub menu
+    $("#navmenu-h>li li").hover(function() {
+        if (document.body.clientWidth < ($(this).offset().left + 400)) {
+            $(this).find("ul").css("left", "-101%");
+        }
+    }, function() {
+        $(this).find("ul").css("left", "100%");
+    });    
+</script>
+
+<!--[if IE]>
+<script language="javascript" type="text/javascript">
+    //add shadow effect for IE
+    $("#navmenu-h ul").append(function() {
+        var height = $(this).children("li").length * 29;
+        height += $(this).children("li").filter(".multirow2").length * 15;
+        height += $(this).children("li").filter(".multirow3").length * 30;
+        return $("<div class='navmenu-shadow' />").height(height);
+    });
+</script>
+<![endif]-->
+<!--[if lte IE 6.5]>
+<script language="javascript" type="text/javascript">
+//    //add iframe mask to hack IE6 bug( )
+//    $("#navmenu-h ul").append(function() {
+//        var height = $(this).children("li").length * 29 + 5;
+//        return $("<iframe class='mask' />").height(height);
+//    });
+    
+    //as iframe would conflict with DC's global.js, so use hide 
+    //hide all <select> elements to compatible with production environment
+    $("#navmenu-bg ul").hover(function() {
+        $("select").css("visibility", "hidden");
+    }, function() {
+        $("select").css("visibility", "visible");
+    });
+    //add iehover effect for IE6
+    $("#navmenu-h li").hover(function() {
+        $(this).addClass("iehover");
+    }, function() {
+        $(this).removeClass("iehover");
+    });
+</script>
+<![endif]-->
+
+    
+<script type="text/javascript" src="/racing/Info/Scripts/JQueryCookie.js" ></script> 
+<script type="text/javascript" src="/racing/Info/Scripts/DragTable.js" ></script> 
+<div id="results">
+    
+
+<div class="clearDivFloat">
+    <table width="760px">
+        <tr>
+            <td class="Header">
+            <img src="/racing/Info/English/revamp/images/racing/title_results.gif" border="0" alt="" /></td>
+        </tr>
+    </table>
+</div>
+<!------------------------------------------------------------------------------------------------------------ 
+ !    Meeting Panel
+------------------------------------------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------------------------------------------ 
+ !    Race Panel
+------------------------------------------------------------------------------------------------------------->
+<!-- 2 New Racecourse Buttons ends -->
+<div class="raceNum clearfix">
+    <table cellspacing="1px" cellpadding="1px" border="0"><tr valign="middle" bgcolor="#ffffff"><td style="text-align:left;">&nbsp;</td><td nowrap="nowrap" class="racingTitle" style="text-align:right;">Sha Tin:</td><td nowrap="nowrap" style="text-align:center;" width="24px"><img src="/racing/Info/StaticFile/Images/Racing/racecard_rt_1_o.gif" border="0" /></td><td nowrap="nowrap" style="text-align:center;" width="24px"><a href="/racing/Info/Meeting/Results/English/Local/20150104/ST/2"><img src="/racing/Info/StaticFile/Images/Racing/racecard_rt_2.gif" name="racecard_rt_2_r" id="racecard_rt_2_r" border="0" /></a></td><td nowrap="nowrap" style="text-align:center;" width="24px"><a href="/racing/Info/Meeting/Results/English/Local/20150104/ST/3"><img src="/racing/Info/StaticFile/Images/Racing/racecard_rt_3.gif" name="racecard_rt_3_r" id="racecard_rt_3_r" border="0" /></a></td><td nowrap="nowrap" style="text-align:center;" width="24px"><a href="/racing/Info/Meeting/Results/English/Local/20150104/ST/4"><img src="/racing/Info/StaticFile/Images/Racing/racecard_rt_4.gif" name="racecard_rt_4_r" id="racecard_rt_4_r" border="0" /></a></td><td nowrap="nowrap" style="text-align:center;" width="24px"><a href="/racing/Info/Meeting/Results/English/Local/20150104/ST/5"><img src="/racing/Info/StaticFile/Images/Racing/racecard_rt_5.gif" name="racecard_rt_5_r" id="racecard_rt_5_r" border="0" /></a></td><td nowrap="nowrap" style="text-align:center;" width="24px"><a href="/racing/Info/Meeting/Results/English/Local/20150104/ST/6"><img src="/racing/Info/StaticFile/Images/Racing/racecard_rt_6.gif" name="racecard_rt_6_r" id="racecard_rt_6_r" border="0" /></a></td><td nowrap="nowrap" style="text-align:center;" width="24px"><a href="/racing/Info/Meeting/Results/English/Local/20150104/ST/7"><img src="/racing/Info/StaticFile/Images/Racing/racecard_rt_7.gif" name="racecard_rt_7_r" id="racecard_rt_7_r" border="0" /></a></td><td nowrap="nowrap" style="text-align:center;" width="24px"><a href="/racing/Info/Meeting/Results/English/Local/20150104/ST/8"><img src="/racing/Info/StaticFile/Images/Racing/racecard_rt_8.gif" name="racecard_rt_8_r" id="racecard_rt_8_r" border="0" /></a></td><td nowrap="nowrap" style="text-align:center;" width="24px"><a href="/racing/Info/Meeting/Results/English/Local/20150104/ST/9"><img src="/racing/Info/StaticFile/Images/Racing/racecard_rt_9.gif" name="racecard_rt_9_r" id="racecard_rt_9_r" border="0" /></a></td><td nowrap="nowrap" style="text-align:center;" width="24px"><a href="/racing/Info/Meeting/Results/English/Local/20150104/ST/10"><img src="/racing/Info/StaticFile/Images/Racing/racecard_rt_10.gif" name="racecard_rt_10_r" id="racecard_rt_10_r" border="0" /></a></td><td><a href="/racing/Info/Meeting/ResultsAll/English/Local/20150104"><img src="/racing/Info/StaticFile/English/Images/Racing/racecard_rt_all.gif" name="racecard_rt_all_r" id="racecard_rt_all_r" border="0" /></a></td></tr></table>
+</div>
+
+
+<script type="text/javascript" language="javascript">
+    function goURL(url) {
+        // JCRWSystemCutoffDate, HkjcWebUrl, curIsEnglish, jsAction From Site.Master
+        var cutOffDate = JCRWSystemCutoffDate;
+        var curSelect = document.getElementById("raceDateSelect");
+        var curArgs = curSelect.options[curSelect.selectedIndex].value;
+
+        var curDate = curArgs.split("/")[1];
+        var isSimulcastOnly = curArgs.indexOf("Simulcast") >= 0;
+
+        if ((curDate < cutOffDate) && isSimulcastOnly) {
+            var paraDate = curSelect.options[curSelect.selectedIndex].text;
+            url = HkjcWebUrl + "/" + (curIsEnglish ? "english" : "chinese") + "/racing/";
+            if (jsAction == "resultsall") {
+                url += "raceresult_all.asp?raceDate=" + paraDate;
+            }
+            else {
+                url += "results.asp?raceDate=" + paraDate + "&venue=" + curArgs.split("/")[2];
+            }
+            parent.document.location.href = url;
+        }
+        else {
+            if (jsAction == "resultsall")
+                curArgs = curArgs.replace("Simulcast", "Local");
+            url = url.replace("Local/yyyyMMdd/ST", curArgs);
+            parent.document.location.href = url;
+        }
+    }
+</script>
+
+
+<div class="rowDiv5">
+    <table border="0" width="760px">
+        <tr>
+            <td class="tdAlignL number13 color_black">
+                Race Meeting: 04/01/2015&nbsp;&nbsp;&nbsp;&nbsp;Sha Tin
+            </td>
+            <td class="tdAlignR">
+                <select name="raceDateSelect" id="raceDateSelect">
+                    <option value='Local/20150104/ST' selected>04/01/2015</option><option value='Local/20150101/ST'>01/01/2015</option><option value='Local/20141228/ST'>28/12/2014</option><option value='Local/20141220/ST'>20/12/2014</option><option value='Local/20141217/HV'>17/12/2014</option><option value='Local/20141214/ST'>14/12/2014</option><option value='Local/20141210/HV'>10/12/2014</option><option value='Local/20141207/ST'>07/12/2014</option><option value='Local/20141203/HV'>03/12/2014</option><option value='Local/20141130/ST'>30/11/2014</option><option value='Local/20141126/HV'>26/11/2014</option><option value='Local/20141123/ST'>23/11/2014</option><option value='Local/20141119/HV'>19/11/2014</option><option value='Local/20141115/ST'>15/11/2014</option><option value='Local/20141112/HV'>12/11/2014</option><option value='Local/20141109/ST'>09/11/2014</option><option value='Simulcast/20141108/S1'>08/11/2014</option><option value='Simulcast/20141104/S1'>04/11/2014</option><option value='Local/20141102/ST'>02/11/2014</option><option value='Simulcast/20141101/S1'>01/11/2014</option><option value='Local/20141029/HV'>29/10/2014</option><option value='Local/20141026/ST'>26/10/2014</option><option value='Simulcast/20141025/S1'>25/10/2014</option><option value='Local/20141022/HV'>22/10/2014</option><option value='Local/20141019/HV'>19/10/2014</option><option value='Simulcast/20141018/S1'>18/10/2014</option><option value='Local/20141015/ST'>15/10/2014</option><option value='Local/20141012/ST'>12/10/2014</option><option value='Local/20141008/ST'>08/10/2014</option><option value='Local/20141005/ST'>05/10/2014</option><option value='Local/20141001/ST'>01/10/2014</option><option value='Local/20140927/ST'>27/09/2014</option><option value='Local/20140924/ST'>24/09/2014</option><option value='Local/20140921/ST'>21/09/2014</option><option value='Local/20140917/ST'>17/09/2014</option><option value='Local/20140914/ST'>14/09/2014</option><option value='Simulcast/20140712/S1'>12/07/2014</option><option value='Local/20140706/ST'>06/07/2014</option><option value='Local/20140701/ST'>01/07/2014</option><option value='Local/20140628/ST'>28/06/2014</option><option value='Local/20140625/ST'>25/06/2014</option><option value='Local/20140622/ST'>22/06/2014</option><option value='Simulcast/20140621/S1'>21/06/2014</option><option value='Local/20140618/ST'>18/06/2014</option><option value='Simulcast/20140617/S1'>17/06/2014</option><option value='Local/20140615/ST'>15/06/2014</option><option value='Local/20140611/ST'>11/06/2014</option><option value='Local/20140608/ST'>08/06/2014</option><option value='Simulcast/20140607/S1'>07/06/2014</option><option value='Local/20140605/HV'>05/06/2014</option><option value='Local/20140601/ST'>01/06/2014</option><option value='Simulcast/20140531/S1'>31/05/2014</option><option value='Local/20140528/HV'>28/05/2014</option><option value='Local/20140525/ST'>25/05/2014</option><option value='Local/20140521/HV'>21/05/2014</option><option value='Simulcast/20140518/S1'>18/05/2014</option><option value='Local/20140517/ST'>17/05/2014</option><option value='Local/20140514/HV'>14/05/2014</option><option value='Local/20140510/ST'>10/05/2014</option><option value='Local/20140507/HV'>07/05/2014</option><option value='Local/20140504/ST'>04/05/2014</option><option value='Local/20140430/HV'>30/04/2014</option><option value='Local/20140427/ST'>27/04/2014</option><option value='Local/20140421/ST'>21/04/2014</option><option value='Simulcast/20140419/S1'>19/04/2014</option><option value='Local/20140416/HV'>16/04/2014</option><option value='Local/20140413/ST'>13/04/2014</option><option value='Simulcast/20140412/S1'>12/04/2014</option><option value='Local/20140409/HV'>09/04/2014</option><option value='Local/20140406/ST'>06/04/2014</option><option value='Local/20140402/HV'>02/04/2014</option><option value='Local/20140330/ST'>30/03/2014</option><option value='Simulcast/20140329/S1'>29/03/2014</option><option value='Local/20140326/ST'>26/03/2014</option><option value='Local/20140323/ST'>23/03/2014</option><option value='Local/20140319/HV'>19/03/2014</option><option value='Local/20140316/ST'>16/03/2014</option><option value='Local/20140312/HV'>12/03/2014</option><option value='Local/20140309/ST'>09/03/2014</option><option value='Simulcast/20140308/S1'>08/03/2014</option><option value='Local/20140305/HV'>05/03/2014</option><option value='Local/20140301/ST'>01/03/2014</option><option value='Local/20140226/HV'>26/02/2014</option><option value='Local/20140223/ST'>23/02/2014</option><option value='Simulcast/20140222/S1'>22/02/2014</option><option value='Local/20140219/HV'>19/02/2014</option><option value='Local/20140216/ST'>16/02/2014</option><option value='Local/20140212/HV'>12/02/2014</option><option value='Local/20140208/ST'>08/02/2014</option><option value='Local/20140205/HV'>05/02/2014</option><option value='Local/20140202/ST'>02/02/2014</option><option value='Local/20140126/ST'>26/01/2014</option><option value='Local/20140122/HV'>22/01/2014</option><option value='Local/20140119/ST'>19/01/2014</option><option value='Local/20140115/HV'>15/01/2014</option><option value='Local/20140111/ST'>11/01/2014</option><option value='Local/20140108/HV'>08/01/2014</option><option value='Local/20140105/ST'>05/01/2014</option><option value='Local/20140101/ST'>01/01/2014</option><option value='Local/20131229/ST'>29/12/2013</option><option value='Local/20131226/HV'>26/12/2013</option><option value='Local/20131221/ST'>21/12/2013</option><option value='Local/20131218/HV'>18/12/2013</option><option value='Local/20131215/ST'>15/12/2013</option><option value='Local/20131211/HV'>11/12/2013</option><option value='Local/20131208/ST'>08/12/2013</option><option value='Local/20131204/HV'>04/12/2013</option><option value='Local/20131201/ST'>01/12/2013</option><option value='Local/20131127/HV'>27/11/2013</option><option value='Local/20131124/ST'>24/11/2013</option><option value='Local/20131120/HV'>20/11/2013</option><option value='Local/20131117/ST'>17/11/2013</option><option value='Local/20131113/HV'>13/11/2013</option><option value='Local/20131109/ST'>09/11/2013</option><option value='Local/20131106/HV'>06/11/2013</option><option value='Simulcast/20131105/S1'>05/11/2013</option><option value='Local/20131103/ST'>03/11/2013</option><option value='Simulcast/20131102/S1'>02/11/2013</option><option value='Local/20131030/ST'>30/10/2013</option><option value='Local/20131027/ST'>27/10/2013</option><option value='Local/20131023/HV'>23/10/2013</option><option value='Local/20131020/HV'>20/10/2013</option><option value='Simulcast/20131019/S1'>19/10/2013</option><option value='Local/20131016/ST'>16/10/2013</option><option value='Local/20131012/ST'>12/10/2013</option><option value='Local/20131009/HV'>09/10/2013</option><option value='Local/20131006/ST'>06/10/2013</option><option value='Local/20131001/ST'>01/10/2013</option><option value='Simulcast/20130929/S1'>29/09/2013</option><option value='Local/20130925/HV'>25/09/2013</option><option value='Local/20130922/ST'>22/09/2013</option><option value='Local/20130917/HV'>17/09/2013</option><option value='Local/20130915/ST'>15/09/2013</option><option value='Local/20130911/HV'>11/09/2013</option><option value='Local/20130908/ST'>08/09/2013</option>
+                </select>
+                <a href="javascript:goURL('/racing/Info/Meeting/Results/english/Local/yyyyMMdd/ST');"><img src="/racing/Info/StaticFile/English/Images/go.gif" style="vertical-align:top;" border="0" width="26px" height="20px" alt="Go" /></a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="rowDiv15"><div class="rowDivRight"><a href="http://www.hkjc.com/english/racing/display_sectionaltime.asp?RaceDate=04/01/2015&amp;Raceno=1&amp;All=0#Race1" target="_blank"><img src="/racing/Info/StaticFile/English/Images/Racing/sectional_time_btn.gif" border="0" /></a></div></div>
+
+<script language="javascript" type="text/javascript" src="/racing/Info/Scripts/OpenVideo.min.js"></script>
+<script language="javascript" type="text/javascript" src="/racing/Info/English/include/akamai.min.js"></script>
+
+<div class="rowDiv15"><div class="boldFont14 color_white trBgBlue">RACE 1 (283)</div><div class="clearDivFloat paddingTop5"><table cellpadding="0px" class="tableBorder0 font13" width="100%"><tr><td class="divWidth">Class 5 - <span class="number14">1000M - (40-0)</span></td><td class="raceinfoDivWidth">Going :</td><td colspan="3">GOOD TO FIRM</td></tr><tr><td>HUNG SHUI KIU HANDICAP</td><td>Course :</td><td colspan="3">TURF - &quot;C+3&quot; COURSE</td></tr><tr><td class="number14">HK$ 575,000</td><td>Time :</td><td class="number14">(13.12)</td><td class="number14">(34.24)</td><td class="number14">(57.04)</td></tr><tr><td>&nbsp;</td><td>Sectional Time :</td><td class="number14">13.12</td><td class="number14">21.12</td><td class="number14">22.80</td></tr><tr><td colspan="5"><div class="clearDivFloat divH15"><a href="javascript:OpenPopWin('/racing/video/play.asp?type=replay-full&amp;date=20150104&amp;no=01&amp;lang=eng',640,390);" target="_self"><img src="/racing/Info/StaticFile/Images/icon-multiangles.png" border="0" />&nbsp;Multi Angle Race Replay</a></div></td></tr></table></div></div>
+<span style="white-space: nowrap;"></span>
+
+
+<script language="JavaScript" type="text/JavaScript">
+    function MM_openBrWindow(theURL) { //v2.0
+        window.open(theURL, '', 'width=290,height=360');
+    }
+</script>
+
+<div class="clearDivFloat rowDiv15">
+    
+    <table cellpadding="1" cellspacing="1" class="tableBorder trBgBlue tdAlignC number12 draggable" width="760px">
+        <thead> 
+            <tr class="tdAlignVT trBgBlue1 fontStyle color_white LBFont14 " style="cursor: move;">
+                <td width="60px" align="center">Plc.</td>
+                <td width="60px" align="center">Horse No.</td>
+                <td width="245px" align="center">Horse</td>
+                <td width="125px" align="center">Jockey</td>
+                <td width="125px" align="center">Trainer</td>
+                <td width="55px" align="center">Actual<br/>Wt.</td>
+                <td width="55px" align="center">Declar.<br />Horse Wt.</td>
+                <td width="55px" align="center">Draw</td>
+                <td width="55px" align="center">LBW</td>
+                <td width="65px" align="center">Running<br/>Position</td>
+                <td width="65px" align="center">Finish Time</td>
+                <td width="65px" align="center">Win Odds</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr class="trBgGrey"><td nowrap="nowrap">1</td><td nowrap="nowrap">12</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=P156">TRILLION TREASURE</a>(P156)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=MOJ&amp;season=Current">J Moreira</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=SA&amp;season=Current">A Schutz</a></td><td nowrap="nowrap">122</td><td nowrap="nowrap">1067</td><td nowrap="nowrap">9</td><td nowrap="nowrap">-</td>
+        <td align="center" nowrap="nowrap">
+        
+        <table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">2</td><td width="16" align="center">3</td><td width="16" align="center">1</td></tr></table>
+
+        </td><td nowrap="nowrap">0.57.04</td><td nowrap="nowrap">3.9</td></tr><tr class="trBgWhite"><td nowrap="nowrap">2</td><td nowrap="nowrap">2</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=M223">JOYFUL LUCK</a>(M223)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=GM&amp;season=Current">M Guyon</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=CCW&amp;season=Current">C W Chang</a></td><td nowrap="nowrap">132</td><td nowrap="nowrap">1080</td><td nowrap="nowrap">11</td><td nowrap="nowrap">2</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">6</td><td width="16" align="center">8</td><td width="16" align="center">2</td></tr></table></td><td nowrap="nowrap">0.57.36</td><td nowrap="nowrap">10</td></tr><tr class="trBgGrey"><td nowrap="nowrap">3</td><td nowrap="nowrap">6</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=L238">ISLAND SPRING</a>(L238)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=RU&amp;season=Current">U Rispoli</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=OSP&amp;season=Current">P O'Sullivan</a></td><td nowrap="nowrap">130</td><td nowrap="nowrap">1201</td><td nowrap="nowrap">10</td><td nowrap="nowrap">2-1/4</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">9</td><td width="16" align="center">5</td><td width="16" align="center">3</td></tr></table></td><td nowrap="nowrap">0.57.40</td><td nowrap="nowrap">7.1</td></tr><tr class="trBgWhite"><td nowrap="nowrap">4</td><td nowrap="nowrap">14</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=L252">SHANGHAI PIONEER</a>(L252)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=HCY&amp;season=Current">C Y Ho</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=FD&amp;season=Current">D E Ferraris</a></td><td nowrap="nowrap">114</td><td nowrap="nowrap">1083</td><td nowrap="nowrap">14</td><td nowrap="nowrap">3-1/4</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">10</td><td width="16" align="center">13</td><td width="16" align="center">4</td></tr></table></td><td nowrap="nowrap">0.57.58</td><td nowrap="nowrap">16</td></tr><tr class="trBgGrey"><td nowrap="nowrap">5</td><td nowrap="nowrap">9</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=P028">COPY STAR</a>(P028)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=RN&amp;season=Current">N Rawiller</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=LAL&amp;season=Current">A Lee</a></td><td nowrap="nowrap">125</td><td nowrap="nowrap">1060</td><td nowrap="nowrap">4</td><td nowrap="nowrap">3-1/2</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">12</td><td width="16" align="center">9</td><td width="16" align="center">5</td></tr></table></td><td nowrap="nowrap">0.57.62</td><td nowrap="nowrap">27</td></tr><tr class="trBgWhite"><td nowrap="nowrap">6</td><td nowrap="nowrap">1</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=L352">XI YING MEN</a>(L352)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=CAN&amp;season=Current">N Callan</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=TYS&amp;season=Current">Y S Tsui</a></td><td nowrap="nowrap">133</td><td nowrap="nowrap">1105</td><td nowrap="nowrap">3</td><td nowrap="nowrap">3-3/4</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">1</td><td width="16" align="center">1</td><td width="16" align="center">6</td></tr></table></td><td nowrap="nowrap">0.57.64</td><td nowrap="nowrap">6.2</td></tr><tr class="trBgGrey"><td nowrap="nowrap">7</td><td nowrap="nowrap">13</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=P331">MASSIVE</a>(P331)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=TEK&amp;season=Current">K Teetan</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=HL&amp;season=Current">L Ho</a></td><td nowrap="nowrap">117</td><td nowrap="nowrap">1070</td><td nowrap="nowrap">6</td><td nowrap="nowrap">3-3/4</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">4</td><td width="16" align="center">4</td><td width="16" align="center">7</td></tr></table></td><td nowrap="nowrap">0.57.64</td><td nowrap="nowrap">6.7</td></tr><tr class="trBgWhite"><td nowrap="nowrap">8</td><td nowrap="nowrap">10</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=S047">LYRIC ACE</a>(S047)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=LDE&amp;season=Current">K C Leung</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=CD&amp;season=Current">D Cruz</a></td><td nowrap="nowrap">122</td><td nowrap="nowrap">1000</td><td nowrap="nowrap">2</td><td nowrap="nowrap">3-3/4</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">3</td><td width="16" align="center">2</td><td width="16" align="center">8</td></tr></table></td><td nowrap="nowrap">0.57.65</td><td nowrap="nowrap">16</td></tr><tr class="trBgGrey"><td nowrap="nowrap">9</td><td nowrap="nowrap">3</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=P438">SNOW SLIDER</a>(P438)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=LHW&amp;season=Current">H W Lai</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=YPF&amp;season=Current">P F Yiu</a></td><td nowrap="nowrap">130</td><td nowrap="nowrap">1095</td><td nowrap="nowrap">8</td><td nowrap="nowrap">4</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">14</td><td width="16" align="center">11</td><td width="16" align="center">9</td></tr></table></td><td nowrap="nowrap">0.57.67</td><td nowrap="nowrap">17</td></tr><tr class="trBgWhite"><td nowrap="nowrap">10</td><td nowrap="nowrap">4</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=N146">ZACHARY</a>(N146)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=MG&amp;season=Current">G Mosse</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=LKW&amp;season=Current">K W Lui</a></td><td nowrap="nowrap">131</td><td nowrap="nowrap">1186</td><td nowrap="nowrap">5</td><td nowrap="nowrap">6</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">7</td><td width="16" align="center">7</td><td width="16" align="center">10</td></tr></table></td><td nowrap="nowrap">0.58.00</td><td nowrap="nowrap">19</td></tr><tr class="trBgGrey"><td nowrap="nowrap">11</td><td nowrap="nowrap">5</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=S012">HAPPILY TIME</a>(S012)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=PB&amp;season=Current">B Prebble</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=YCH&amp;season=Current">C H Yip</a></td><td nowrap="nowrap">130</td><td nowrap="nowrap">1086</td><td nowrap="nowrap">1</td><td nowrap="nowrap">6-1/4</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">8</td><td width="16" align="center">6</td><td width="16" align="center">11</td></tr></table></td><td nowrap="nowrap">0.58.04</td><td nowrap="nowrap">16</td></tr><tr class="trBgWhite"><td nowrap="nowrap">12</td><td nowrap="nowrap">7</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=S233">CALIFORNIA ROCK</a>(S233)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=CML&amp;season=Current">M Chadwick</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=CAS&amp;season=Current">A S Cruz</a></td><td nowrap="nowrap">129</td><td nowrap="nowrap">1207</td><td nowrap="nowrap">13</td><td nowrap="nowrap">7-1/2</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">5</td><td width="16" align="center">12</td><td width="16" align="center">12</td></tr></table></td><td nowrap="nowrap">0.58.25</td><td nowrap="nowrap">15</td></tr><tr class="trBgGrey"><td nowrap="nowrap">13</td><td nowrap="nowrap">8</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=S243">NATURAL EIGHT</a>(S243)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=TON&amp;season=Current">C K Tong</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=FC&amp;season=Current">C Fownes</a></td><td nowrap="nowrap">127</td><td nowrap="nowrap">1021</td><td nowrap="nowrap">12</td><td nowrap="nowrap">8-1/2</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">11</td><td width="16" align="center">10</td><td width="16" align="center">13</td></tr></table></td><td nowrap="nowrap">0.58.39</td><td nowrap="nowrap">59</td></tr><tr class="trBgWhite"><td nowrap="nowrap">14</td><td nowrap="nowrap">11</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/horse.asp?horseno=S174">LUCKY PIONEER</a>(S174)</td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/jockeyprofile.asp?jockeycode=YML&amp;season=Current">M L Yeung</a></td><td class="tdAlignL font13 fontStyle" nowrap="nowrap"><a href="http://www.hkjc.com/english/racing/trainerprofile.asp?trainercode=YTP&amp;season=Current">T P Yung</a></td><td nowrap="nowrap">121</td><td nowrap="nowrap">1067</td><td nowrap="nowrap">7</td><td nowrap="nowrap">12-1/4</td><td align="center" nowrap="nowrap"><table width="48" border="0" cellSpacing="0" cellPadding="0"><tr><td width="16" align="center">13</td><td width="16" align="center">14</td><td width="16" align="center">14</td></tr></table></td><td nowrap="nowrap">0.58.99</td><td nowrap="nowrap">99</td></tr>
+        </tbody>
+    </table>
+    <font size="2">
+        Note: <a href="javascript:MM_openBrWindow('http://www.hkjc.com/English/include/special_race_index.htm')">Special incidents index</a>
+    </font>
+    <br />
+    
+</div>
+<div class="rowDivLeft rowDiv10"><table border='0' cellspacing='0' cellpadding='0'><tr><td><table width="450px" cellspacing="1px" cellpadding="1px" class="tableBorder trBgBlue tdAlignC font13 fontStyle"><tr><td colspan="3" class="trBgBlue1 tdAlignL boldFont14 color_white">Dividend</td></tr><tr class="trBg01"><td>Pool</td><td>Winning Combination</td><td>Dividend&nbsp;(HK$)</td></tr><tr class="trBgGrey1"><td rowspan="1">WIN</td><td class="number14">12</td><td class="number14 tdAlignR">39.00</td></tr><tr class="trBgWhite"><td rowspan="3">PLACE</td><td class="number14">12</td><td class="number14 tdAlignR">16.00</td></tr><tr class="trBgWhite"><td class="number14">2</td><td class="number14 tdAlignR">43.00</td></tr><tr class="trBgWhite"><td class="number14">6</td><td class="number14 tdAlignR">20.50</td></tr><tr class="trBgGrey1"><td rowspan="1">QUINELLA</td><td class="number14">2,12</td><td class="number14 tdAlignR">301.00</td></tr><tr class="trBgWhite"><td rowspan="3">QUINELLA PLACE</td><td class="number14">2,12</td><td class="number14 tdAlignR">110.50</td></tr><tr class="trBgWhite"><td class="number14">6,12</td><td class="number14 tdAlignR">51.00</td></tr><tr class="trBgWhite"><td class="number14">2,6</td><td class="number14 tdAlignR">126.00</td></tr><tr class="trBgGrey1"><td rowspan="1">TIERCE</td><td class="number14">12,2,6</td><td class="number14 tdAlignR">1,490.00</td></tr><tr class="trBgWhite"><td rowspan="1">TRIO</td><td class="number14">2,6,12</td><td class="number14 tdAlignR">292.00</td></tr><tr class="trBgGrey1"><td rowspan="1">FIRST 4</td><td class="number14">2,6,12,14</td><td class="number14 tdAlignR">896.00</td></tr></table></td><td></td></tr></table></div>
+<div class="clearDivFloat rodDiv5">
+    &nbsp;&nbsp;</div>
+<div class="clearDivFloat">
+    <table cellspacing="1" cellpadding="2" width="710" class="trBgGrey3">
+        <tr valign="middle">
+            <td colspan="2" class="tdBgGrer4" height="2">
+            </td>
+        </tr>
+        <tr valign="middle" class="trBgBlue3">
+            <td height="26px" align="center" colspan="2" class="boldFont14">
+                <span color="black">
+                    Breed of the Winning Horse-Online
+                </span>
+            </td>
+        </tr>
+        
+        <tr valign="middle" class="trBgWhite">
+            <td width="27%" align="center" class="trBgGrey">
+                <a href="http://www.hkjc.com/english/racing/horse.asp?horseno=P156" Class="font13 color_blue">TRILLION TREASURE</a>
+            </td>
+            <td width="73%" class="font13 fontStyle">
+                <span class="number15">
+                    Sire: Speightstown
+                    <br />
+                    Dam: Chumsie
+                </span>
+            </td>
+        </tr>
+        
+        <tr valign="middle">
+            <td colspan="2" class="tdBgGrer4" height="2">
+            </td>
+        </tr>
+    </table>
+</div>
+<div Class="clearDivFloat rowDiv15">Call our Hotline 1817 within the time specified by the Jockey Club to register if you've won more than HK$5 million.</div><div class="rowDiv15" />Remark: <br>Aerial Virtual Replay is provided by an external vendor Trakus, for personal infotainment only. &#160;Due to the frequent usage of mobile phones at the racecourses, the signals receiving by Trakus system may be affected and thus the accuracy of Aerial Virtual Replay cannot be guaranteed.&#160; Every effort is made to ensure the information is up to the closest approximation, but the club assumes no responsibility for it. &#160;For the actual race results, the customers should refer to Real Replay videos.
+</div>
+</div>
+
+    </div><div class="shadowR"></div></div>
+<div class="rowDiv15">&nbsp;</div>
+<script language="javascript" type="text/javascript">
+
+function getURLType() {
+    var url = window.location;
+    var localPattern = /racing\/info/i;
+    var overseaPattern = /racing\/overseas/i;
+    if (localPattern.test(url)) {
+        return "local";
+    }
+    else if (overseaPattern.test(url)) {
+        return "overseas";
+    }
+    else {
+        return "na";
+    }
+}
+
+document.write('' + 
+'<div id="seo" class="fiveCol">' +
+'<div class="content clearfix">' +
+'<dl>' +
+'<dt>Racing Information</dt>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/Entries/English/" target="_self">Entries</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/Racecard/English/" target="_self">Race Card (Local)</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://bet.hkjc.com/default.aspx?url=/racing/pages/odds_wp.aspx&lang=en&langRedirect=true&dv=' + getURLType() + '" target="_blank">Current Odds</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/Results/English/" target="_self">Results &amp; Dividends</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/JockeysRides/English/" target="_self">Jockeys\' Rides</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/TrainerEntry/English/" target="_self">Trainers\' Entries</a>' +
+'</dd>' +
+'</dl>' +
+'<div></div>' +
+'<dl>' +
+'<dt>Racing News &amp; Resources</dt>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/corporate/racing_news.asp" target="_self">Racing News</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/corporate/racing_news_archive.asp" target="_self">News Archives</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/racinginfo/key_races.asp" target="_self">Key Races</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/racing/selecthorse.asp" target="_self">Horses</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/Jockey/Ranking/English/" target="_self">Jockeys</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/Trainer/Ranking/English/" target="_self">Trainers</a>' +
+'</dd>' +
+'</dl>' +
+'<div></div>' +
+'<dl>' +
+'<dt>Analytical Tools</dt>' +
+'<dd>' +
+'<a href="javascript:openPowerFiguresBottomLink()">Power Figures</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/formguide/formguide.asp" target="_blank">SpeedPOWER</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/tipsindex/tips_index.asp" target="_blank">Tips Index</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/easyform/popIndex.asp?lang=eng" target="_blank">Easy Form</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/racinginfo/newhorse.asp" target="_self">Intro to New Horses</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/AllUpCalculator/English/" target="_blank">All-Up Calculator</a>' +
+'</dd>' +
+'</dl>' +
+'<div></div>' +
+'<dl>' +
+'<dt>Multimedia</dt>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/press/live.asp" target="_self">Live Broadcast</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/press/showcase.asp" target="_self">TV Programme Replay</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/press/btrs.asp" target="_self">Barrier Trials</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCEWDomainIP + '/english/racinginfo/ppo_performance_current.asp" target="_self">PP Pre-import Races Footage</a>' +
+'</dd>' +
+'</dl>' +
+'<div></div>' +
+'<dl>' +
+'<dt>Useful Info</dt>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/Summary/English/" target="_self">General Information</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/Draw/english/" target="_self">Draw Statistics</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://' + jsJCRWDomainIP + '/racing/Info/meeting/JkcStat/english/" target="_self">Jockey Challenge Statistics</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://special.hkjc.com/racing/info/en/betting/guide-flexibet-index.asp" target="_blank">Flexi Bet</a>' +
+'</dd>' +
+'<dd>' +
+'<a href="http://mcs.hkjc.com/" target="_blank">Media Communication System</a>' +
+'</dd>' +
+'</dl>' +
+'</div>' +
+'</div>');
+</script><div id="footer"><div class="rgp"><img src="../../../../../../GlobalMenu/english/images/rgp_text_eng_970.gif" usemap="#RGP_970e" /> <!--
+<div class="ifha"></div>
+--></div>
+<map name="RGP_970e" id="RGP_970e">
+<area shape="rect" coords="900,2,968,43" href="http://corporate.hkjc.com/corporate/rgp/english/index.aspx" target="_self" />
+</map>
+<div class="nav clearfix">
+<div class="content">
+<script language="javascript" type="text/jscript">
+    var footer = "<a class=\"first\" href=\"http://" + jsJCEWDomainIP + "/english/corporate/faq.asp\" target=\"_blank\">FAQ</a> " +
+    "| <a href=\"javascript:NewWindow('http://special.hkjc.com/infomenu/en/contact/feedback.asp','mypopup','770','550','yes','yes');\">Contact Us</a> " +
+    "| <a href=\"javascript:NewWindow('http://mcs.hkjc.com/','mypopup','770','550','yes','yes');\">Media Communication System</a> " +
+    "| <a href=\"http://" + jsJCEWDomainIP + "/english/corporate/corp_sitemap.asp\">Site Map</a> " +
+    "| <a href=\"javascript:NewWindow('http://" + jsJCEWDomainIP + "/english/betting/betting_rule.htm','mypopup','770','550','yes','yes');\">Rules </a>" +
+    "| <a href=\"http://" + jsJCEWDomainIP + "/english/corporate/corp_rgp.asp\">Responsible Gambling Policy</a> " +
+    "| <a href=\"http://" + jsJCEWDomainIP + "/english/corporate/corp_privacy.asp\">Privacy</a> " +
+    "| <a href=\"http://" + jsJCEWDomainIP + "/english/corporate/corp_disclaimer.asp\">Disclaimer</a><br />";
+document.write(footer);
+</script>
+</div>
+<div class="copyright">Copyright &copy; 2000-2010 The Hong Kong Jockey Club. All rights reserved.</div>
+</div></div><script src="//common.hkjc.com/wa/wa_tracker.js" type="text/javascript"></script><script src="//common.hkjc.com/wa/wa_tracker_config.js" type="text/javascript"></script>
+<script type="text/javascript">
+    if (PageIsReady) { //Page is Ready from Site.Master
+        try {
+            WATracker.trackPageView('racing-content');
+        } catch (e) { } 
+    }
+</script>
+</body>
+</html>
