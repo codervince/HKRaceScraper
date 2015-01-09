@@ -22,5 +22,15 @@ DUPEFILTER_DEBUG = False
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Googlebot/2.1 (+http://www.googlebot.com/bot.html)'
 
-ITEM_PIPELINES = {'scrapy.contrib.pipeline.images.ImagesPipeline': 1}
-IMAGES_STORE = '/images'
+#this is a dictionary
+ITEM_PIPELINES = {'scrapy.contrib.pipeline.images.ImagesPipeline': 1, 'tutorial.pipelines.HKDBPipeline':2}
+IMAGES_STORE = '/users/vmac/Documents/programming/PY/scrapy/tutorial/images'
+FILES_STORE = '/users/vmac/Documents/programming/PY/scrapy/tutorial/videos'
+
+
+DATABASE = {'drivername': 'postgres',
+            'host': 'localhost',
+            'port': '5432',
+            'username': 'vmac',
+            'password': '',
+            'database': 'hkraces'}

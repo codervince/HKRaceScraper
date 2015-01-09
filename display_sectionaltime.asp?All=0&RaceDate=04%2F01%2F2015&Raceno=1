@@ -1,0 +1,1303 @@
+
+<!--Option Explicit -->
+<!-- Include asp config file-->
+ 
+<!-- Include asp config file end-->
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0073)http://www.hkjc.com/english/racing/raceresult_all.asp?RaceDate=14/11/2007 -->
+<html>
+<head>
+    <title>Sectional Time & Position - Results - Horse Racing - The Hong Kong Jockey Club</title>
+<meta name="keywords" content=" ">
+<meta name="description" content=" ">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta content="MSHTML 6.00.2800.1597" name="GENERATOR">
+    <link href="../css/sectionaltime_style.css" rel="stylesheet" type="text/css">	
+</head>
+<body leftmargin="0" topmargin="0">
+
+	
+
+    <table cellspacing="0" cellpadding="0" width="760" border="0">
+        <tbody>
+            <tr>
+                <td width="5%">
+                    &nbsp;&nbsp;</td>
+                <td>
+                    <table cellspacing="0" cellpadding="0" width="760" border="0">
+                        <tbody>
+                            <tr>
+                                <td valign="middle">
+                                    <div align="left">
+                                        <img src="images/header/title_results_sectiontp.gif" border="0">
+                                    </div>
+                                </td>
+                                <td align="right">
+                                    &nbsp;
+<TABLE cellSpacing=1 cellPadding=1 border=0>
+              <TBODY>
+              <TR vAlign=top bgColor=#ffffff>
+
+<td nowrap align='middle'><img src="images/racecard_rt_1_o.gif"  border="0" ></td><td nowrap align='middle'><a href='display_sectionaltime.asp?racedate=04/01/2015&Raceno=2&All=0'><img src="images/racecard_rt_2.gif" border="0"></a></td><td nowrap align='middle'><a href='display_sectionaltime.asp?racedate=04/01/2015&Raceno=3&All=0'><img src="images/racecard_rt_3.gif" border="0"></a></td><td nowrap align='middle'><a href='display_sectionaltime.asp?racedate=04/01/2015&Raceno=4&All=0'><img src="images/racecard_rt_4.gif" border="0"></a></td><td nowrap align='middle'><a href='display_sectionaltime.asp?racedate=04/01/2015&Raceno=5&All=0'><img src="images/racecard_rt_5.gif" border="0"></a></td><td nowrap align='middle'><a href='display_sectionaltime.asp?racedate=04/01/2015&Raceno=6&All=0'><img src="images/racecard_rt_6.gif" border="0"></a></td><td nowrap align='middle'><a href='display_sectionaltime.asp?racedate=04/01/2015&Raceno=7&All=0'><img src="images/racecard_rt_7.gif" border="0"></a></td><td nowrap align='middle'><a href='display_sectionaltime.asp?racedate=04/01/2015&Raceno=8&All=0'><img src="images/racecard_rt_8.gif" border="0"></a></td><td nowrap align='middle'><a href='display_sectionaltime.asp?racedate=04/01/2015&Raceno=9&All=0'><img src="images/racecard_rt_9.gif" border="0"></a></td><td nowrap align='middle'><a href='display_sectionaltime.asp?racedate=04/01/2015&Raceno=10&All=0'><img src="images/racecard_rt_10.gif" border="0"></a></td><td nowrap align='middle'><a href=display_sectionaltime.asp?racedate=04/01/2015&All=1><img src="images/racecard_rt_all.gif" border="0"></a></td>			
+									</tr>
+									</tbody>
+								</table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+					
+<!-- header  start-->
+      <TABLE width=100% border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top rowSpan=2><FONT size=2>
+   
+	<table width="760" border="0">
+		<tbody>
+			<tr>
+				<td valign="top" rowspan="2">
+					<font face="Arial" size="2">Meeting Date: 04/01/2015, Sha Tin
+						<br>
+					</font>
+				</td>
+				<td colspan="2">
+				<FORM name=input method=get>
+				  <DIV align=right>
+					<input type="hidden" name="Raceno" value="1">
+					<!---input type="hidden" name="TotalRaceNum" value="10"--->
+					<input type="hidden" name="All" value="0">
+				    <select name="raceDate">
+					<option value='07/01/2015'>07/01/2015</option><option value='04/01/2015' selected>04/01/2015</option><option value='01/01/2015'>01/01/2015</option><option value='28/12/2014'>28/12/2014</option><option value='20/12/2014'>20/12/2014</option><option value='17/12/2014'>17/12/2014</option><option value='14/12/2014'>14/12/2014</option><option value='10/12/2014'>10/12/2014</option><option value='07/12/2014'>07/12/2014</option><option value='03/12/2014'>03/12/2014</option><option value='30/11/2014'>30/11/2014</option><option value='26/11/2014'>26/11/2014</option><option value='23/11/2014'>23/11/2014</option><option value='19/11/2014'>19/11/2014</option><option value='15/11/2014'>15/11/2014</option><option value='12/11/2014'>12/11/2014</option><option value='09/11/2014'>09/11/2014</option><option value='02/11/2014'>02/11/2014</option><option value='29/10/2014'>29/10/2014</option><option value='26/10/2014'>26/10/2014</option><option value='22/10/2014'>22/10/2014</option><option value='19/10/2014'>19/10/2014</option><option value='15/10/2014'>15/10/2014</option><option value='12/10/2014'>12/10/2014</option><option value='08/10/2014'>08/10/2014</option><option value='05/10/2014'>05/10/2014</option><option value='01/10/2014'>01/10/2014</option><option value='27/09/2014'>27/09/2014</option><option value='24/09/2014'>24/09/2014</option><option value='21/09/2014'>21/09/2014</option><option value='17/09/2014'>17/09/2014</option><option value='14/09/2014'>14/09/2014</option><option value='06/07/2014'>06/07/2014</option><option value='01/07/2014'>01/07/2014</option><option value='28/06/2014'>28/06/2014</option><option value='25/06/2014'>25/06/2014</option><option value='22/06/2014'>22/06/2014</option><option value='18/06/2014'>18/06/2014</option><option value='15/06/2014'>15/06/2014</option><option value='11/06/2014'>11/06/2014</option><option value='08/06/2014'>08/06/2014</option><option value='05/06/2014'>05/06/2014</option><option value='01/06/2014'>01/06/2014</option><option value='28/05/2014'>28/05/2014</option><option value='25/05/2014'>25/05/2014</option><option value='21/05/2014'>21/05/2014</option><option value='17/05/2014'>17/05/2014</option><option value='14/05/2014'>14/05/2014</option><option value='10/05/2014'>10/05/2014</option><option value='07/05/2014'>07/05/2014</option><option value='04/05/2014'>04/05/2014</option><option value='30/04/2014'>30/04/2014</option><option value='27/04/2014'>27/04/2014</option><option value='21/04/2014'>21/04/2014</option><option value='16/04/2014'>16/04/2014</option><option value='13/04/2014'>13/04/2014</option><option value='09/04/2014'>09/04/2014</option><option value='06/04/2014'>06/04/2014</option><option value='02/04/2014'>02/04/2014</option><option value='30/03/2014'>30/03/2014</option><option value='26/03/2014'>26/03/2014</option><option value='23/03/2014'>23/03/2014</option><option value='19/03/2014'>19/03/2014</option><option value='16/03/2014'>16/03/2014</option><option value='12/03/2014'>12/03/2014</option><option value='09/03/2014'>09/03/2014</option><option value='05/03/2014'>05/03/2014</option><option value='01/03/2014'>01/03/2014</option><option value='26/02/2014'>26/02/2014</option><option value='23/02/2014'>23/02/2014</option><option value='19/02/2014'>19/02/2014</option><option value='16/02/2014'>16/02/2014</option><option value='12/02/2014'>12/02/2014</option><option value='08/02/2014'>08/02/2014</option><option value='05/02/2014'>05/02/2014</option><option value='02/02/2014'>02/02/2014</option><option value='26/01/2014'>26/01/2014</option><option value='22/01/2014'>22/01/2014</option><option value='19/01/2014'>19/01/2014</option><option value='15/01/2014'>15/01/2014</option><option value='11/01/2014'>11/01/2014</option><option value='08/01/2014'>08/01/2014</option><option value='05/01/2014'>05/01/2014</option><option value='01/01/2014'>01/01/2014</option><option value='29/12/2013'>29/12/2013</option><option value='26/12/2013'>26/12/2013</option><option value='21/12/2013'>21/12/2013</option><option value='18/12/2013'>18/12/2013</option><option value='15/12/2013'>15/12/2013</option><option value='11/12/2013'>11/12/2013</option><option value='08/12/2013'>08/12/2013</option><option value='04/12/2013'>04/12/2013</option><option value='01/12/2013'>01/12/2013</option><option value='27/11/2013'>27/11/2013</option><option value='24/11/2013'>24/11/2013</option><option value='20/11/2013'>20/11/2013</option><option value='17/11/2013'>17/11/2013</option><option value='13/11/2013'>13/11/2013</option><option value='09/11/2013'>09/11/2013</option><option value='06/11/2013'>06/11/2013</option><option value='03/11/2013'>03/11/2013</option><option value='30/10/2013'>30/10/2013</option><option value='27/10/2013'>27/10/2013</option><option value='23/10/2013'>23/10/2013</option><option value='20/10/2013'>20/10/2013</option><option value='16/10/2013'>16/10/2013</option><option value='12/10/2013'>12/10/2013</option><option value='09/10/2013'>09/10/2013</option><option value='06/10/2013'>06/10/2013</option><option value='01/10/2013'>01/10/2013</option><option value='25/09/2013'>25/09/2013</option><option value='17/09/2013'>17/09/2013</option><option value='15/09/2013'>15/09/2013</option><option value='11/09/2013'>11/09/2013</option><option value='08/09/2013'>08/09/2013</option>			 	
+					  </select>
+		          <a href="javascript:document.input.submit()">
+				  <img border=0 src="images/go.gif" width="26" height="20" ALT="??"></a></div>
+				  </FORM>	
+		  		</td>
+			</tr>
+		</tbody>
+	</table>	
+	<a name=Race1>
+
+                   
+                    <!-- test0 table start -->
+                    <table class="bigborder" cellspacing="0" cellpadding="0" width="760" border="0">
+                        <tbody>
+                            <tr>
+                                <td class="subheader" colspan="2">
+                                    Race&nbsp;1&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td bgcolor="#ffffff" width="50%">
+                                    <table align="left" cellSpacing="0" width="100%" border="0">
+									<tr><td bgcolor="#FFFFFF"><font face="Arial" size=2>Class 5 - 1000M - (040-000) - Turf - C+3 Course - Good To Firm</font></td></tr><tr><td bgcolor="#FFFFFF"><font face="Arial" size=2>HUNG SHUI KIU HANDICAP</font></td></tr>
+									  	</table>
+                                </td>
+									<td bgcolor="#ffffff" valign="top" >
+									
+									<table align="right" cellSpacing="0" width="100%" border="0">
+									<tr><td bgcolor="#FFFFFF"><font face="Arial" size=2>Race	Time : </font></td><td bgcolor="#FFFFFF"><font face="Arial" size=2>(13.12)</font></td><td bgcolor="#FFFFFF"><font face="Arial" size=2>(34.24)</font></td><td bgcolor="#FFFFFF"><font face="Arial" size=2>(57.04)</font></td></tr><tr><td bgcolor="#FFFFFF"><font face="Arial" size=2>Sectional Time : </font></td><td bgcolor="#FFFFFF"><font face="Arial" size=2>13.12</font></td><td bgcolor="#FFFFFF"><font face="Arial" size=2>21.12</font></td><td bgcolor="#FFFFFF"><font face="Arial" size=2>22.80</font></td></tr>
+									</table>
+									
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#ffffff" colspan="2">
+								
+								
+                                    <table width="100%" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td valign="top" bgcolor="#003366">
+												<TABLE cellSpacing=0 width="100%" border=0>
+												  <TBODY>
+													<TR>
+                                                    <table cellspacing="1" width="100%" border="0">
+                                                        <tbody>
+														<TR>
+						                                  <TD width="7%" rowspan="3" class=subsubheader_section4><DIV  class=subsubheader_section4 align=center>Placing</DIV></TD>
+						                                  <TD width="7%" rowspan="3" class=subsubheader_section4><DIV  class=subsubheader_section4 align=center>Horse No. </DIV></TD>
+						                                  <TD rowspan="3" class=subsubheader_section4>Horse </TD>
+						                                  <TD colspan="6" class=subsubheader_section4>Running Position &amp; Margin Behind Leader</TD>
+														<!--ss02 -start-->						                                 
+														 <TD rowspan="3" class=subsubheader_section4>Time </TD>
+															<!--ss02 -end-->
+						                                </TR>
+						                                <TR>
+						                                  <TD colspan="6" class=subsubheader_section4>Sectional Time </TD>
+						                                </TR>
+						                                <TR>
+						                                  <TD class=subsubheader_section4>1st Sec. </TD>
+						                                  <TD class=subsubheader_section4>2nd Sec.</TD>
+						                                  <TD class=subsubheader_section4>3rd Sec.</TD>
+						                                  <TD class=subsubheader_section4>4th Sec.</TD>
+						                                  <TD class=subsubheader_section4>5th Sec.</TD>
+						                                  <TD class=subsubheader_section4>6th Sec.</TD>
+						                                </TR>
+
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						1 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">12</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=P156" target="_blank">TRILLION TREASURE(P156)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			2
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			3
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			1-1/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			1
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.57.04</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.24&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.20&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			22.60&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						2 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">2</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=M223" target="_blank">JOYFUL LUCK(M223)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			6
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2-1/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			8
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2-3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			2
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.57.36</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.48&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.20&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			22.68&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						3 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">6</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=L238" target="_blank">ISLAND SPRING(L238)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			9
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2-3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			5
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			3
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2-1/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.57.40</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.56&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.00&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			22.84&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						4 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">14</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=L252" target="_blank">SHANGHAI PIONEER(L252)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			10
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-1/2
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			13
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			5
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			4
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-1/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.57.58</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.68&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.36&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			22.54&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						5 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">9</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=P028" target="_blank">COPY STAR(P028)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			12
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			9
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-1/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			5
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-1/2
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.57.62</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.72&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.04&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			22.86&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						6 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">1</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=L352" target="_blank">XI YING MEN(L352)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			1
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			1
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			SH
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			6
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.57.64</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.12&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.12&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			23.40&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						7 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">13</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=P331" target="_blank">MASSIVE(P331)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			4
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			1-1/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			4
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			7
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.57.64</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.32&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.24&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			23.08&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						8 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">10</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=S047" target="_blank">LYRIC ACE(S047)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			3
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			2
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			SH
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			8
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.57.65</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.24&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.00&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			23.41&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						9 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">3</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=P438" target="_blank">SNOW SLIDER(P438)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			14
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			11
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			9
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.57.67</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.76&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.08&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			22.83&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						10 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">4</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=N146" target="_blank">ZACHARY(N146)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			7
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2-1/2
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			7
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2-1/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			10
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			6
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.58.00</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.52&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.08&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			23.40&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						11 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">5</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=S012" target="_blank">HAPPILY TIME(S012)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			8
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2-1/2
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			6
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2-1/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			11
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			6-1/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.58.04</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.52&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.08&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			23.44&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						12 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">7</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=S233" target="_blank">CALIFORNIA ROCK(S233)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			5
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			2
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			12
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			4-1/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			12
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			7-1/2
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.58.25</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.44&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.48&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			23.33&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						13 
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">8</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=S243" target="_blank">NATURAL EIGHT(S243)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			11
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			10
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			13
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			8-1/2
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.58.39</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.72&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.12&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			23.55&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+        
+
+                                                                           
+                                                                            <tr>
+                                                                                <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4">
+                                                                                    <div align="center" class="table_eng_small_text_t4">
+																						14
+																					</div>
+                                                                                </td>
+												                                 <TD rowspan="2" align=middle bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">11</div></TD>
+												                                  <TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="left" class="table_eng_small_text_t4"><a href="horse.asp?horseno=S174" target="_blank">LUCKY PIONEER(S174)</a></div></TD>
+																				
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			13
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			3-3/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			14
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			5
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																					<TD width="62" height="20" align=right bgColor=#dcdcdc class="table_eng_small_text_t4">
+																					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																						  <tr>
+																							<td width="20" class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">
+																							  <div align="right">
+																				  			14
+																							  </div>
+																							</div></td>
+																							<td width="40" align="center" valign="top" class="table_eng_small_text_m4">
+																				  			12-1/4
+																							</td>
+																							</tr>
+																					  </table>
+																					  </TD>
+                                                                                
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD width="62" rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><img src="blank_img.gif" width="62" height="45" border="0"></TD>
+																				
+																				<TD rowspan="2" align=right bgColor=#ffffff class="table_eng_small_text_t4"><div align="center" class="table_eng_small_text_t4">0.58.99</div></TD>
+										                                </tr>
+										                                <TR>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			13.72&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			21.32&nbsp;
+																		  </TD>
+																		
+										                                  <TD width="62" align=center bgColor=#ffffff class="table_eng_small_text_t4">
+																			23.95&nbsp;
+																		  </TD>
+																		
+																			</TR>                             
+                                                            
+                                                            
+                                                        </tbody>
+                                                    </table>
+												 </TR>
+												</TBODY>
+												</TABLE>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+									
+								
+                    <!--0 table End -->
+                    <!-- test1 table start -->
+                    <br>
+                    <br>
+                    </a> 
+
+			  </FONT></TD>
+		  </TR>
+		  </TBODY>
+		  </TABLE>
+<!-- header  end-->
+		<!-- Include txt file begin-->
+	 
+	<!-- Include txt file end-->
+                    <!-- Footer Begins -->
+                    
+
+
+
+
+<script language="javascript">
+	document.write('<scr' + 'ipt type="text/javascript" language="javascript" src="/english/include/footer_all.js"></scr' + 'ipt>');
+</script>
+</td>
+</tr>
+</table> 
+                    <!-- Footer Ends -->
+                  
+</body>
+</html>
